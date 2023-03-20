@@ -1,4 +1,4 @@
-import { View, Text, Linking, TouchableOpacity, Image, ScrollView, TextInput, StyleSheet, Dimensions } from 'react-native'
+import { View, Text, Linking, TouchableOpacity, Image, ScrollView, TextInput, StyleSheet, Dimensions, FlatList } from 'react-native'
 import React, { useState, useCallback } from 'react'
 import Video from 'react-native-video';
 import BgVideo from '../Video/background.mp4'
@@ -6,11 +6,9 @@ import Icons from './Icons/IconsSet';
 import Spacer, { SpacerHorizontal } from './spacer';
 import { size } from './size';
 import { TouchableHighlight } from 'react-native-gesture-handler';
-import BottomView from './BottomView';
 import girlwithcurl from '../images/curlygirl.png'
 import lakeBg from '../images/lakebg.png'
 import brownGirl from '../images/brownmundi.png'
-
 import {
     responsiveHeight,
     responsiveWidth,
@@ -19,6 +17,27 @@ import {
 import CustomAppBar from './CustomAppBar';
 import StarsImage from './StarsImage';
 import LogoCompanyCard from './LogoCompanyCard';
+import Overlapping from './Overlapping';
+import CitiesComponent from './CitiesComponent';
+import TownNameComponent from './TownNameComponent';
+import MultipleImage from './MultipleImage';
+import ChannelButton from './ChannelButton';
+import Countries from './Countries';
+import Subscribebutton from './Subscribebutton';
+import Contents from './Contents';
+import Bangalore from '../images/Bangalore.png'
+import Chennai from '../images/Chennai.png'
+import Mumbai from '../images/Mumbai.png'
+import Hyderabad from '../images/Hyderabad.png'
+import Coimbtare from '../images/Coimbtare.png'
+import Pune from '../images/Pune.png'
+import TownName from '../images/TownName.png'
+import Promovideo from '../images/Promovideo.png'
+import CountriesImage from '../images/CountriesImage.png'
+import Android from '../images/Android.png'
+import AppStore from '../images/AppStore.png'
+import Googlepay from '../images/Googlepay.png'
+import ButtonComponent from './ButtonComponent';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -45,6 +64,8 @@ export default function HomeScreen({ navigation }) {
 
     const [isPin, setPin] = useState(true);
     const [isCity, setCity] = useState(false);
+    const [listLogo, setListlogo] = useState([1, 1]);
+
     return (
         <View>
 
@@ -114,6 +135,85 @@ export default function HomeScreen({ navigation }) {
 
 
                 </View>
+
+
+                <View style={{ width: '100%', backgroundColor: '#EFF5FF', padding: 25 }}>
+                    <Overlapping overlaytitle='CITIES CATALOGUE' title='Explore Recent Cities' />
+
+                    <CitiesComponent city='Bangalore' Image={<Image source={Bangalore} style={styles.ImageView} />} />
+                    <CitiesComponent city='Chennai' Image={<Image source={Chennai} style={styles.ImageView} />} />
+                    <CitiesComponent city='Mumbai' Image={<Image source={Mumbai} style={styles.ImageView} />} />
+                    <CitiesComponent city='Hyderabad' Image={<Image source={Hyderabad} style={styles.ImageView} />} />
+                    <CitiesComponent city='Coimbtare' Image={<Image source={Coimbtare} style={styles.ImageView} />} />
+                    <CitiesComponent city='Pune' Image={<Image source={Pune} style={styles.ImageView} />} />
+                    <ButtonComponent Title='View All Cities' />
+                </View>
+                <View style={{ backgroundColor: 'white', paddingTop: 25 }}>
+                    <Overlapping overlaytitle='EXPLORE PIN CODES' title='Latest Pin Codes' />
+                    <View style={styles.subView}>
+                        <Image source={TownName} style={{ height: 250, width: '100%', borderRadius: 6, marginBottom: 15 }} />
+                        <TownNameComponent num={560022} title='TownName' subtitle='0 Listings' />
+                    </View>
+                    <MultipleImage num={603103} />
+                    <MultipleImage num={560076} />
+                    <MultipleImage num={600119} />
+                    <MultipleImage num={603103} />
+                    <MultipleImage num={560076} />
+                    <MultipleImage num={600119} />
+                </View>
+                <View style={{ height: 400, width: '100%', marginVertical: 20, justifyContent: 'center' }}>
+                    <Image source={Promovideo} style={{ height: 400, width: '100%', position: 'absolute' }} />
+                    <Text style={styles.smallText}>Aliquam erat volutpat interdum</Text>
+
+                    <View style={{ height: 260, width: 250, alignSelf: 'center' }}>
+                        <Text style={styles.innerText}>Get ready to start your exciting journey.</Text>
+                        <Text style={styles.innerText}>Our agency will lead you through the amazing digital world</Text>
+                        <ChannelButton subtitle='Promo Video' Icon={<Icons.AntDesign name={'play'} size={15} />} />
+                    </View>
+                </View>
+                <View style={{ height: 700, width: '100%', alignSelf: 'center', paddingTop: 30 }}>
+                    <Image source={CountriesImage}
+                        style={{ position: 'absolute', height: 700, width: '100%' }} />
+
+                    <Countries num={1} term='Countries' />
+                    <Countries num={6} term='Cities' />
+                    <Countries num={7} term='Pin Codes / Towns' />
+                    <Countries num={13} term='Amenities' />
+
+                </View>
+
+                <View style={styles.blueView}>
+                    <View style={{ flexDirection: 'row', marginTop: 30, marginBottom: 15 }}>
+                        <Text style={{ fontSize: 28, fontWeight: '400', color: 'black' }}>Let's </Text>
+                        <Text style={{ fontSize: 28, fontWeight: '700', color: 'black' }}>Stay In Touch</Text>
+                    </View>
+                    <Text style={{ fontSize: 16, color: 'black', padding: 10, textAlign: 'center' }}>
+                        Join Xity's newsletter, so that we reach out to you with our best alerts and offers.
+                    </Text>
+                    <TextInput placeholder='Enter your Email Address...' style={styles.inputTextInput}></TextInput>
+                    <Subscribebutton content='Subscribe' />
+                </View>
+
+                <View style={styles.androidimage}>
+                    <Image source={Android} resizeMode='cover' style={{ height: 450, width: 220, alignSelf: 'center' }} />
+                </View>
+
+                <View style={{ alignSelf: 'center', marginRight: 25, marginLeft: 15 }}>
+                    <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
+                        <Image source={AppStore} style={styles.playstorebutton} />
+                        <Image source={Googlepay} style={styles.playstorebutton} />
+                    </View>
+                    <Text style={styles.boldText}>
+                        Xity is a Directory + Marketplace + Community platform
+                    </Text>
+                    <Text style={{ fontSize: 16, color: 'black', marginBottom: 15 }}>
+                        Join us! Our members can access savings and community support.
+                    </Text>
+                    <Contents isThereLine={true} title='Downloads' />
+                    <Contents isThereLine={true} title='User' />
+                    <Contents isThereLine={false} title='Member' />
+                </View>
+
                 <View style={{ paddingHorizontal: 15, backgroundColor: 'white' }}>
                     <View style={{
                         height: 600,
@@ -147,9 +247,18 @@ export default function HomeScreen({ navigation }) {
                     <Spacer size={size.sh} />
                     <Text style={{ alignSelf: 'center', color: '#3B3B3B', fontFamily: 'Roboto-Regular', fontSize: responsiveFontSize(1.9) }}>Collaboration Makes Us Better</Text>
                     <Spacer size={size.mid} />
-                    <LogoCompanyCard />
-                    <Spacer size={size.sm} />
-                    <LogoCompanyCard />
+                    <FlatList
+                        horizontal
+                        style={{ width: '100%', }}
+                        pagingEnabled
+                        showsHorizontalScrollIndicator={false}
+                        data={listLogo}
+                        renderItem={({ item }) =>
+                            <View style={{ width: responsiveWidth(90), marginRight: 15 }}>
+                                <LogoCompanyCard />
+                                <Spacer size={size.sm} />
+                                <LogoCompanyCard />
+                            </View>} />
                     <Spacer size={size.xxxlg} />
                     <View style={{ width: '100%', height: 400, alignItems: 'center', justifyContent: 'center' }}>
                         <Image source={lakeBg} style={{ width: '100%', borderRadius: 15, position: 'absolute', height: 400 }} />
@@ -185,6 +294,81 @@ export default function HomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    overlayText: {
+        position: 'absolute',
+        color: '#DFEBFF',
+        fontSize: 39,
+        fontWeight: '700',
+        alignSelf: 'center'
+    },
+    subView: {
+        borderColor: '#C5C5C5',
+        borderWidth: 0.9,
+        padding: 15,
+        borderRadius: 6,
+        marginLeft: 15,
+        marginRight: 15,
+        marginBottom: 15
+    },
+    subViewrow: {
+        borderColor: '#C5C5C5',
+        borderWidth: 0.9,
+        padding: 15,
+        borderRadius: 6,
+        marginLeft: 15,
+        marginRight: 15,
+    },
+    innerText: {
+        fontSize: 25,
+        fontWeight: '700',
+        color: 'black',
+        alignSelf: 'center',
+        textAlign: 'center',
+        color: 'white'
+    },
+    ImageView: {
+        height: 125,
+        width: 125,
+        margin: 18
+    },
+    smallText: {
+        fontSize: 18,
+        color: 'white',
+        alignSelf: 'center',
+        marginBottom: 20
+    },
+    inputTextInput: {
+        height: 60,
+        margin: 12,
+        borderRadius: 8,
+        padding: 10,
+        width: 275,
+        backgroundColor: 'white'
+    },
+
+    playstorebutton: {
+        height: 50,
+        width: 145,
+        borderRadius: 8,
+        marginRight: 8,
+        marginBottom: 20
+    },
+    blueView: {
+        alignItems: 'center',
+        backgroundColor: '#8BB7FF',
+        height: 340,
+        width: 320,
+        borderRadius: 15,
+        alignSelf: 'center',
+        margin: 15,
+        marginTop: 30
+    },
+    boldText: {
+        fontSize: 23, fontWeight: '700', color: 'black', marginBottom: 15
+    },
+    androidimage: {
+        width: '100%', marginTop: 25, marginBottom: 30, alignSelf: 'center'
+    },
     backgroundVideo: {
         position: 'absolute',
         top: 0,

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity, Image, Pressable } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity, Image, Pressable, ActivityIndicator } from 'react-native'
 import React, { useState } from 'react'
 
 import Spacer, { SpacerHorizontal } from './spacer'
@@ -16,34 +16,95 @@ import {
 } from "react-native-responsive-dimensions";
 import axios from 'axios';
 import CustomAppBar from './CustomAppBar'
+import ApiManager from './ApiManager'
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const UserSignUpScreen = ({ navigation }) => {
     const [radioButtons, setRadioButtons] = useState(true);
     const [isExpand, setExpand] = useState(false);
+    const [isLogin, setLogin] = useState(false);
+    const [fname, setFName] = useState('');
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [pass, setPass] = useState('');
 
+    // const [fullname, setFullname] = useState('')
+    // const [usernm, setUsernm] = useState('')
+    // const [eemail, setEEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [phonenumber, setPhonenumber] = useState('');
+
+    const onCreate = () => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+        if (fname === '') {
+            alert('Name is required')
+        }
+        else if (username === '') {
+            alert('Username is required')
+        }
+        else if (email === '') {
+            alert('Email is required')
+        }
+        else if (pass === '') {
+            alert('Password is required')
+        }
+        else if (email === '') {
+            alert("Email is required")
+        }
+        else if (phone === '') {
+            alert('Phone number is required')
+        }
+        else if (pass === '') {
+            alert('Password is required')
+        }
+        else if (pass.length <= 5) {
+            alert('Password should be more than 6 characters')
+        }
+
+        else {
+            handleSignUp();
+
+        }
+    }
     const handleSignUp = () => {
+        setLogin(true)
 
-        axios.post('https://xitysites.onrender.com/bussiness-user',
+        ApiManager.post('bussiness-user',
             {
-                fullname: 'pikachu',
-                username: 'pikachu',
-                email: 'pikachu@gmail.com',
-                phoneno: '8457182761',
-                password: '123456'
-            }
-        )
+                fullname: fname,
+                username: username,
+                email: email,
+                phoneno: phone,
+                password: pass
+            })
             .then(function (response) {
-                console.log('Uppppppppp' + response.data.success);
+                setLogin(false)
+                console.log(response);
+                if (response.status === 200) {
+                    alert("User created Successfully")
+
+                }
+                else {
+                    alert("Faild")
+
+                }
             })
             .catch(function (error) {
                 console.log(error);
+                setLogin(false)
+                alert("Failed, Please provide valid details")
+
             });
     }
-
+    // const functionComb = () => {
+    //     onCreate();
+    //     handleSignUp();
+    // }
     // const handleSignUp = () => {
     //     user_login({
+
     //         fullname: 'guddu',
     //         username: 'guddu',
     //         email: 'guddu@gmail.com',
@@ -55,8 +116,6 @@ const UserSignUpScreen = ({ navigation }) => {
     //         console.log(err.status)
     //     })
     // }
-
-
     return (
         <Pressable onPress={() => {
             setExpand(false)
@@ -66,20 +125,42 @@ const UserSignUpScreen = ({ navigation }) => {
                 <ScrollView showsVerticalScrollIndicator={false} style={{ backgroundColor: '#EFF5FF' }}>
                     {/* <ScrollView showsVerticalScrollIndicator={false}> */}
                     <View style={styles.styleCenter}>
+                        {isLogin && <View style={{ height: windowHeight, alignItems: 'center', alignSelf: 'center', zIndex: 1, justifyContent: 'center', position: 'absolute' }}>
+                            <ActivityIndicator size='large' color='#4286F5' />
+                        </View>}
                         <View style={{ height: responsiveHeight(12) }} />
                         <Image source={Logo} style={styles.imageStylelogo} />
                         <Spacer size={size.xlg} />
                         {/* <Text style={styles.textStyle}>Create your account</Text>
                         <Spacer size={size.xxlg} /> */}
-                        <ImageTextInput hint='Full Name' isUser={true}></ImageTextInput>
+
+                        <ImageTextInput
+                            onChangeText={(value) => { setFName(value) }}
+                            hint='Full Name' isUser={true}></ImageTextInput>
                         <Spacer size={size.sm} />
-                        <ImageTextInput hint='Username' isUser={true}></ImageTextInput>
+                        <ImageTextInput
+                            onChangeText={(value) => {
+                                setUsername(value)
+                            }}
+                            hint='Username' isUser={true}></ImageTextInput>
                         <Spacer size={size.sm} />
-                        <ImageTextInput hint='Email Address' isEmail={true}></ImageTextInput>
+                        <ImageTextInput
+                            onChangeText={(value) => {
+                                setEmail(value)
+                            }}
+                            hint='Email Address' isEmail={true}></ImageTextInput>
                         <Spacer size={size.sm} />
-                        <ImageTextInput hint='Phone Number' isCall={true}></ImageTextInput>
+                        <ImageTextInput
+                            onChangeText={(value) => {
+                                setPhone(value)
+                            }}
+                            hint='Phone Number' keyboardType='numeric' isCall={true}></ImageTextInput>
                         <Spacer size={size.sm} />
-                        <ImageTextInput hint='Password' isPass={true}></ImageTextInput>
+                        <ImageTextInput
+                            onChangeText={(value) => {
+                                setPass(value)
+                            }}
+                            hint='Password' isPass={true}></ImageTextInput>
                         <Spacer size={size.mid} />
                         <View style={{ alignSelf: 'flex-start', marginLeft: 25, }}>
                             <RadioButton
@@ -93,11 +174,9 @@ const UserSignUpScreen = ({ navigation }) => {
                                 value='option1' selected={radioButtons}
                             />
                         </View>
-
                         <Spacer size={size.xlg} />
-
                         <TouchableOpacity onPress={
-                            handleSignUp
+                            onCreate
                         } style={{ width: '80%', padding: 10, borderRadius: 8, backgroundColor: '#4286F5', borderWidth: 2, borderColor: 'rgba(255, 255, 255, .5)', alignContent: 'center', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
                             <Text style={styles.buttonText2}>Create account</Text>
                         </TouchableOpacity>
@@ -110,15 +189,12 @@ const UserSignUpScreen = ({ navigation }) => {
                         </View>
                         <View style={{ height: windowHeight * 0.08 }} />
                     </View>
-
                     <View style={{
                         height: 60, width: '100%', backgroundColor: '#164677', justifyContent: 'center',
                     }} >
                         <Text style={{ color: 'white', fontWeight: '800', alignSelf: 'center', fontSize: 15 }}>© ORNDA ® 2023-23</Text>
                     </View>
-
                     {/* </ScrollView> */}
-
                 </ScrollView>
                 {
                     isExpand ? <ExpandedView
@@ -146,12 +222,10 @@ const UserSignUpScreen = ({ navigation }) => {
 
                         }} onClose={() => { setExpand(false) }} /> : <FloatButton onPress={() => { setExpand(true) }} />
                 }
-
-            </View>
-        </Pressable>
+            </View >
+        </Pressable >
     )
 }
-
 export default UserSignUpScreen
 
 const styles = StyleSheet.create({

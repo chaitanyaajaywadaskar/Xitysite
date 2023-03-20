@@ -15,11 +15,69 @@ import {
 } from "react-native-responsive-dimensions";
 import CustomAppBar from './CustomAppBar'
 import BottomView from './BottomView'
+import ApiManager from './ApiManager'
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const UserLoginScreen = ({ navigation }) => {
     const [otp, setOtp] = useState('');
     const [isExpand, setExpand] = useState(false);
+    const [isLogin, setLogin] = useState(false);
+    const [email, setEmail] = useState('');
+
+
+    const checkEmail = () => {
+        if (email === '') {
+            alert('Email is required')
+        }
+        else {
+            checkOtp();
+        }
+    }
+    const checkMailForOtp = () => {
+        if (email === '') {
+            alert('Email is required')
+        }
+        else {
+            // checkOtp();
+        }
+    }
+
+    const checkOtp = () => {
+        if (otp.length <= 0) {
+            alert('Enter OTP')
+        }
+        else {
+            handleSignUp();
+
+        }
+    }
+    const handleSignUp = () => {
+        setLogin(true)
+        console.log(otp)
+        ApiManager.post('bussiness-login',
+            {
+                email: email,
+                otp1: otp
+            })
+            .then(function (response) {
+                setLogin(false)
+                console.log(response);
+                if (response.status === 200) {
+                    alert("User created Successfully")
+
+                }
+                else {
+                    alert("Faild")
+
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                setLogin(false)
+                alert("Failed, Please provide valid details")
+
+            });
+    }
     return (
         <Pressable onPress={() => {
             setExpand(false)
@@ -51,12 +109,15 @@ const UserLoginScreen = ({ navigation }) => {
 
 
 
-                        <ImageTextInput hint='Enter address or mobile number' isEmail={true} />
+                        <ImageTextInput hint='Enter address or mobile number' value={email} onChangeText={(val) => {
+                            setEmail(val)
+                        }} isEmail={true} />
 
                         <Spacer size={size.xlg} />
 
-                        <TouchableOpacity onPress={() => {
-                        }} style={{ width: '35%', padding: 10, borderRadius: 8, backgroundColor: '#4286F5', borderWidth: 2, borderColor: 'rgba(255, 255, 255, .5)', alignContent: 'center', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
+                        <TouchableOpacity onPress={
+                            checkMailForOtp
+                        } style={{ width: '35%', padding: 10, borderRadius: 8, backgroundColor: '#4286F5', borderWidth: 2, borderColor: 'rgba(255, 255, 255, .5)', alignContent: 'center', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
                             <Text style={styles.buttonText2}>Get OTP</Text>
                         </TouchableOpacity>
                         <Spacer size={size.xlg} />
@@ -66,9 +127,10 @@ const UserLoginScreen = ({ navigation }) => {
                         <Text style={styles.shortTextStyle}>Resend OTP in 00:37</Text>
                         <Spacer size={size.xlg} />
 
-                        <TouchableOpacity onPress={() => {
-                            navigation.navigate('HomeDirectory')
-                        }} style={{ width: '80%', padding: 10, borderRadius: 8, backgroundColor: '#4286F5', borderWidth: 2, borderColor: 'rgba(255, 255, 255, .5)', alignContent: 'center', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
+                        <TouchableOpacity onPress={
+                            checkEmail
+                            // navigation.navigate('HomeDirectory')
+                        } style={{ width: '80%', padding: 10, borderRadius: 8, backgroundColor: '#4286F5', borderWidth: 2, borderColor: 'rgba(255, 255, 255, .5)', alignContent: 'center', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
                             <Text style={styles.buttonText2}>Login</Text>
                         </TouchableOpacity>
 

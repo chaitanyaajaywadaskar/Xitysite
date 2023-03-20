@@ -11,10 +11,9 @@ const ImageTextInput = (props) => {
                 {props.isEmail && <Icons.MaterialCommunityIcons name='email' size={18} color={'#4286F5'} />}
                 {props.isCall && <Icons.Ionicons name='call' size={18} color={'#4286F5'} />}
                 {props.isPass && <Icons.Fontisto name='locked' size={18} color={'#4286F5'} />}
-
             </View>
             <View style={{ flex: 0.8, paddingLeft: 10, justifyContent: 'center' }}>
-                <TextInput placeholder={props.hint} placeholderTextColor='grey' underlineColor='transparent' activeUnderlineColor='black' style={{ height: 40, backgroundColor: props.isBlue ? '#F5F7FB' : 'white', }}></TextInput>
+                <TextInput placeholder={props.hint} keyboardType={props.keyboardType} value={props.value} onEndEditing={props.onEndEditing} onChangeText={props.onChangeText} placeholderTextColor='grey' underlineColor='transparent' activeUnderlineColor='black' style={{ height: 40, backgroundColor: props.isBlue ? '#F5F7FB' : 'white', }}></TextInput>
             </View>
         </View>
     )

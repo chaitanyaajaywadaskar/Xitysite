@@ -15,9 +15,8 @@ import {
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
-import GestureDrawerContext from './DrawerContext'
 import CustomAppBar from './CustomAppBar'
-import axios from 'axios';
+import ApiManager from './ApiManager'
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -32,11 +31,9 @@ const ServiceScreen = ({ navigation }) => {
     const [value, setValue] = useState(null);
     const [value1, setValue1] = useState(null);
     const [value2, setValue2] = useState(null);
-    const [stateVal, setStateVal] = useState([]);
     const [category, setCategory] = useState([]);
     const [category1, setCategory1] = useState([]);
     const [category2, setCategory2] = useState([]);
-    const drawerValue = useContext(GestureDrawerContext)
 
     useEffect(() => {
         stateData()
@@ -45,34 +42,31 @@ const ServiceScreen = ({ navigation }) => {
     }, [])
 
     stateData = () => {
-        axios.get('https://xitysites.onrender.com/api/pincodedata')
+        ApiManager.get('api/state')
             .then(function (response) {
-                console.log(response.data);
-                setStateVal(response.data)
-                var count = Object.keys(response.data).length;
+                console.log('Hoo' + response.data);
+                var count = Object.keys(response.data.data).length;
                 let dropDownData = [];
 
                 for (var i = 0; i < count; i++) {
-                    dropDownData.push({ value: response.data[i].id, label: response.data[i].name });
+                    dropDownData.push({ value: response.data.data[i]._id, label: response.data.data[i].name });
                 }
                 setCategory(dropDownData);
             })
             .catch(function (error) {
                 console.log(error);
             });
-
     }
 
     cityData = () => {
-        axios.get('https://xitysites.onrender.com/api/citydata')
+        ApiManager.get('api/city')
             .then(function (response) {
-                console.log(response.data);
-                setStateVal(response.data)
+                console.log('Coo' + response.data);
                 var count = Object.keys(response.data).length;
                 let dropDownData = [];
 
                 for (var i = 0; i < count; i++) {
-                    dropDownData.push({ value: response.data[i].id, label: response.data[i].name });
+                    dropDownData.push({ value: response.data.data[i]._id, label: response.data.data[i].name });
                 }
                 setCategory1(dropDownData);
             })
@@ -80,16 +74,16 @@ const ServiceScreen = ({ navigation }) => {
                 console.log(error);
             });
     }
+
     pincodeData = () => {
-        axios.get('https://xitysites.onrender.com/api/pincodedata')
+        ApiManager.get('api/pincode')
             .then(function (response) {
-                console.log(response.data);
-                setStateVal(response.data)
-                var count = Object.keys(response.data).length;
+                console.log('Hoo' + response.data.data[0].pincodeno);
+                var count = Object.keys(response.data.data).length;
                 let dropDownData = [];
 
                 for (var i = 0; i < count; i++) {
-                    dropDownData.push({ value: response.data[i].id, label: response.data[i].pincodeno });
+                    dropDownData.push({ value: response.data.data[i]._id, label: response.data.data[i].pincodeno.toString() });
                 }
                 setCategory2(dropDownData);
             })

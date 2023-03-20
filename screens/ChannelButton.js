@@ -5,7 +5,7 @@ import React from 'react'
 
 const ChannelButton = ({ Icon, subtitle }) => {
     return (
-        <View style={{ marginBottom: 15 }}>
+        <View style={{ marginBottom: 15, alignSelf: 'center', margin: 15 }}>
             <TouchableOpacity style={{
                 alignItems: 'center',
                 flexDirection: 'row',
