@@ -2,33 +2,6 @@ import { StyleSheet, TouchableOpacity, Text, Modal, Image, View, Dimensions, Scr
 import React, { useState } from 'react'
 import Spacer, { SpacerHorizontal } from './spacer'
 import { range, size } from './size'
-import Snacks from '../images/snacks.png'
-import PinkBurger from '../images/pinkcircle.png'
-import CircleImg from '../images/avatar.png'
-import DetailBanner from '../images/detailbanner.png'
-import DetailBanner2 from '../images/bgbannerdetail.png'
-import Elevator from '../images/elevator.png'
-import Parking from '../images/parking.png'
-import Wifi from '../images/wifibtn.png'
-import Cloud from '../images/cloud.png'
-import Degree from '../images/degree.png'
-import mg1 from '../images/mg1.png'
-import shop from '../images/shop.png'
-import mg3 from '../images/mg3.png'
-import grp from '../images/grp.png'
-import Avtar from '../images/avatar.png'
-import Cafe from '../images/cafe.png'
-import Map3 from '../images/map3.png'
-import Whatsup from '../images/whatsup.png'
-import fbIcon from '../images/fbicon.png'
-import twitIcon from '../images/twittericon.png'
-import igIcon from '../images/instaicon.png'
-import ytIcon from '../images/yticon.png'
-import vIcon from '../images/vIcon.png'
-import AvatarBoy from '../images/avatarboy.png'
-import Beach from '../images/beach.png'
-import Left from '../images/left.png'
-import Right from '../images/right.png'
 import Icons from './Icons/IconsSet';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import StarsImage from './StarsImage'
@@ -55,6 +28,8 @@ import {
     responsiveFontSize
 } from "react-native-responsive-dimensions";
 import CustomAppBar from './CustomAppBar'
+import IMAGES from '../constants/ImagesContant';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const DetailsScreen = ({ navigation }) => {
@@ -199,7 +174,7 @@ const DetailsScreen = ({ navigation }) => {
                 </Modal>
                 <ScrollView style={{ marginTop: 60 }} showsVerticalScrollIndicator={false}>
                     <View style={styles.overlayContainer}>
-                        <Image source={Snacks} resizeMode='cover' style={styles.overlayImg} />
+                        <Image source={IMAGES.SNACKBG} resizeMode='cover' style={styles.overlayImg} />
                         <View style={styles.breadcrumView}>
                             <Text style={styles.breadcrumText}>Home</Text>
                             <SpacerHorizontal size={size.sm} />
@@ -330,9 +305,9 @@ const DetailsScreen = ({ navigation }) => {
                             <Spacer size={size.sm} />
 
                             <View style={{ flexDirection: 'row', justifyContent: "space-between" }}>
-                                <Image source={PinkBurger} resizeMode='contain' style={{ width: 25, height: 25 }} />
+                                <Image source={IMAGES.PINKBURGER} resizeMode='contain' style={{ width: 25, height: 25 }} />
                                 <Text style={{ fontSize: 12, fontWeight: '500', alignSelf: 'center' }}>Restaurant</Text>
-                                <Image source={CircleImg} resizeMode='contain' style={{ width: 25, height: 25 }} />
+                                <Image source={IMAGES.GIRLAVATAR2} resizeMode='contain' style={{ width: 25, height: 25 }} />
                                 <Text style={{ fontSize: 12, fontWeight: '500', alignSelf: 'center' }}>By, Rose merry</Text>
                                 <TouchableOpacity style={{ backgroundColor: '#00C899', flexDirection: 'row', height: 23, paddingHorizontal: 8, alignItems: 'center', borderRadius: 30 }}>
                                     <Icons.Feather name={'unlock'} size={12} color='white' style={{ alignSelf: 'center' }} />
@@ -352,7 +327,7 @@ const DetailsScreen = ({ navigation }) => {
                             </View>
                         </View>
                         <Spacer size={size.mid} />
-                        <Image source={DetailBanner} style={{ width: '100%', height: 140, borderRadius: 10 }} />
+                        <Image source={IMAGES.DETAILSBANNER} style={{ width: '100%', height: 140, borderRadius: 10 }} />
                         <Spacer size={size.mid} />
                         <View style={{ borderColor: '#BBBBBB', borderWidth: 1, borderRadius: 10, padding: 15 }}>
                             <TouchableWithoutFeedback onPress={() => {
@@ -454,7 +429,7 @@ const DetailsScreen = ({ navigation }) => {
                         <Spacer size={size.mid} />
                         <View style={{ borderColor: '#BBBBBB', borderWidth: 1, borderRadius: 10, padding: 10 }}>
                             <View style={{ height: 175, width: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                                <Image source={DetailBanner2} resizeMode="cover" style={{ height: 175, width: '100%', borderRadius: 10, position: 'absolute' }} />
+                                <Image source={IMAGES.DETAILSBANNER2} resizeMode="cover" style={{ height: 175, width: '100%', borderRadius: 10, position: 'absolute' }} />
                                 <View style={{ flexDirection: 'row', justifyContent: 'center', }}>
                                     <TouchableOpacity style={{ paddingVertical: 10, paddingHorizontal: 20, borderRadius: 6, borderColor: '#FFFFFF', borderWidth: 1, marginRight: 6 }}>
                                         <Text style={{ fontSize: 12, color: 'white' }}>
@@ -627,26 +602,26 @@ const DetailsScreen = ({ navigation }) => {
                                 <View>
 
                                     <View style={{ flexDirection: 'row' }}>
-                                        <Image source={Elevator} style={{ width: 25, height: 25 }} />
+                                        <Image source={IMAGES.ELEVATORBTN} style={{ width: 25, height: 25 }} />
                                         <SpacerHorizontal size={size.sm} />
                                         <Text>Elevator in building</Text>
                                     </View>
                                     <Spacer size={size.sm} />
                                     <View style={{ flexDirection: 'row' }}>
-                                        <Image source={Wifi} style={{ width: 25, height: 25 }} />
+                                        <Image source={IMAGES.WIFIBTN} style={{ width: 25, height: 25 }} />
                                         <SpacerHorizontal size={size.sm} />
                                         <Text>Free WiFi</Text>
                                     </View>
                                 </View>
                                 <View>
                                     <View style={{ flexDirection: 'row' }}>
-                                        <Image source={Parking} style={{ width: 25, height: 25 }} />
+                                        <Image source={IMAGES.PARKINGBTN} style={{ width: 25, height: 25 }} />
                                         <SpacerHorizontal size={size.sm} />
                                         <Text>Free Parking</Text>
                                     </View>
                                     <Spacer size={size.sm} />
                                     <View style={{ flexDirection: 'row' }}>
-                                        <Image source={Cloud} style={{ width: 25, height: 25 }} />
+                                        <Image source={IMAGES.CLOUD} style={{ width: 25, height: 25 }} />
                                         <SpacerHorizontal size={size.sm} />
                                         <Text>Air Conditioned</Text>
                                     </View>
@@ -691,7 +666,7 @@ const DetailsScreen = ({ navigation }) => {
                                         <Text style={{ color: switchBtn == 2 ? 'white' : 'grey', alignSelf: 'center', fontSize: 16 }}>Street view</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={() => { setSwitcBtn(3) }} style={{ flexDirection: 'row', paddingHorizontal: 20, paddingVertical: 8, backgroundColor: switchBtn == 3 ? '#4286F5' : 'transparent', borderRadius: 4, borderColor: '#BBBBBB', borderWidth: switchBtn == 3 ? 0 : 1 }}>
-                                        <Image source={Degree} style={{ width: 20, height: 20 }} />
+                                        <Image source={IMAGES.DEGREE} style={{ width: 20, height: 20 }} />
                                         <SpacerHorizontal size={size.sh} />
 
                                         <Text style={{ color: switchBtn == 3 ? 'white' : 'grey', alignSelf: 'center', fontSize: 16 }}>360 Degree</Text>
@@ -702,11 +677,11 @@ const DetailsScreen = ({ navigation }) => {
 
                                 <Spacer size={size.mid} />
                                 <ScrollView horizontal>
-                                    <Image source={mg1} style={{ width: 250, height: 150, borderRadius: 20, }} />
+                                    <Image source={IMAGES.MG1} style={{ width: 250, height: 150, borderRadius: 20, }} />
                                     <SpacerHorizontal size={size.mid} />
-                                    <Image source={shop} style={{ width: 250, height: 150, borderRadius: 20, }} />
+                                    <Image source={IMAGES.SHOPIMG} style={{ width: 250, height: 150, borderRadius: 20, }} />
                                     <SpacerHorizontal size={size.mid} />
-                                    <Image source={mg3} style={{ width: 250, height: 150, borderRadius: 20, }} />
+                                    <Image source={IMAGES.MG3} style={{ width: 250, height: 150, borderRadius: 20, }} />
                                 </ScrollView>
                             </View>}
                         </View>
@@ -872,7 +847,7 @@ const DetailsScreen = ({ navigation }) => {
                                 <View style={{ height: 1, backgroundColor: '#BBBBBB' }} />
                                 <Spacer size={size.sh} />
                                 <View style={{ margin: 15, }}>
-                                    <Image source={grp} style={{ width: '80%', height: 150, borderRadius: 6 }} />
+                                    <Image source={IMAGES.GRPIMG} style={{ width: '80%', height: 150, borderRadius: 6 }} />
                                     <Spacer size={size.sh} />
                                     <Text style={{ fontWeight: '800', fontSize: 16 }}>Alisa Gray</Text>
                                     <Text style={{ color: '#0C3982', fontWeight: '600' }}>Business consultant</Text>
@@ -989,7 +964,7 @@ const DetailsScreen = ({ navigation }) => {
                                     <Spacer size={size.xlg} />
 
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                        <Image source={Avtar} style={{ width: 60, height: 60 }} />
+                                        <Image source={IMAGES.GIRLAVATAR2} style={{ width: 60, height: 60 }} />
                                         <View style={{
                                             backgroundColor: "#F5F5F5",
                                             padding: 15,
@@ -1084,7 +1059,7 @@ const DetailsScreen = ({ navigation }) => {
                                 <View style={{ height: 1, backgroundColor: '#BBBBBB' }} />
                                 <Spacer size={size.mid} />
                                 <View style={{ width: '100%', height: 295, justifyContent: 'flex-end' }}>
-                                    <Image source={Map3} style={{ position: 'absolute', width: '100%', height: 295, borderRadius: 8 }} />
+                                    <Image source={IMAGES.MAP3} style={{ position: 'absolute', width: '100%', height: 295, borderRadius: 8 }} />
                                     <View style={{ marginRight: 10, marginBottom: 10, }}>
                                         <View style={{ padding: 10, alignSelf: 'flex-end', backgroundColor: 'white' }}>
                                             <Icons.Entypo name='plus' size={20} color='black' />
@@ -1124,7 +1099,7 @@ const DetailsScreen = ({ navigation }) => {
                                 <View style={{ height: 1, backgroundColor: '#BBBBBB' }} />
                                 <Spacer size={size.sm} />
                                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                    <Image source={Whatsup} style={{ width: 40, height: 40 }} />
+                                    <Image source={IMAGES.WHATSUP} style={{ width: 40, height: 40 }} />
                                     <SpacerHorizontal size={size.mid} />
                                     <Text style={{ fontSize: 15, fontWeight: '400', color: 'black' }}>Chat Via Whatsapp</Text>
                                 </View>
@@ -1135,10 +1110,10 @@ const DetailsScreen = ({ navigation }) => {
 
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                                     <View style={{ flexDirection: 'row' }}>
-                                        <SocialIcon Img={fbIcon} />
-                                        <SocialIcon Img={twitIcon} />
-                                        <SocialIcon Img={igIcon} />
-                                        <SocialIcon Img={vIcon} />
+                                        <SocialIcon Img={IMAGES.FBBLUE} />
+                                        <SocialIcon Img={IMAGES.TWITERBLUE} />
+                                        <SocialIcon Img={IMAGES.INSTABLUE} />
+                                        <SocialIcon Img={IMAGES.VBLUE} />
                                     </View>
                                     <View style={{ width: 1, height: 60, backgroundColor: '#BBBBBB' }} />
                                     <TouchableOpacity onPress={() => {
@@ -1205,11 +1180,11 @@ const DetailsScreen = ({ navigation }) => {
                         {/* Business Representative */}
                         <BusinessResprentativeView onPress={() => {
                             setBussines(!isBussines)
-                        }} MainTitle='Business Representative' isBusiness={isBussines} UserImg={Avtar} Name='Rose merry' Designation='Owner' BottomText1='Created Date' BottomText2='Modified Date' />
+                        }} MainTitle='Business Representative' isBusiness={isBussines} UserImg={IMAGES.GIRLAVATAR2} Name='Rose merry' Designation='Owner' BottomText1='Created Date' BottomText2='Modified Date' />
                         <Spacer size={size.mid} />
                         <BusinessResprentativeView onPress={() => {
                             setAgent(!isAgent)
-                        }} MainTitle='Xity Agent' UserImg={AvatarBoy} isBusiness={isAgent} Name='Nick Doe' Designation='0 Listings' BottomText1='Approved Date' BottomText2='Managed Date' />
+                        }} MainTitle='Xity Agent' UserImg={IMAGES.AVATARBOY} isBusiness={isAgent} Name='Nick Doe' Designation='0 Listings' BottomText1='Approved Date' BottomText2='Managed Date' />
                         <Spacer size={size.mid} />
                         {/* Promoted Listnings */}
                         <View style={{ borderColor: '#BBBBBB', borderWidth: 1, borderRadius: 10, padding: 15 }}>
@@ -1223,11 +1198,11 @@ const DetailsScreen = ({ navigation }) => {
                                 <Spacer size={size.mid} />
                                 <View style={{ height: 1, backgroundColor: '#BBBBBB' }} />
                                 <Spacer size={size.sh} />
-                                <PromotedListningItem Img={Cafe} />
+                                <PromotedListningItem Img={IMAGES.CAFE} />
                                 <Spacer size={size.mid} />
                                 <View style={{ height: 1, backgroundColor: '#BBBBBB' }} />
                                 <Spacer size={size.sh} />
-                                <PromotedListningItem Img={Cafe} /></View>}
+                                <PromotedListningItem Img={IMAGES.CAFE} /></View>}
                         </View>
                         <Spacer size={size.mid} />
 
@@ -1243,7 +1218,7 @@ const DetailsScreen = ({ navigation }) => {
                                 <Spacer size={size.mid} />
                                 <View style={{ height: 1, backgroundColor: '#BBBBBB' }} />
                                 <Spacer size={size.sm} />
-                                <Image source={Beach} style={{ width: '100%', height: 280, borderRadius: 10 }} />
+                                <Image source={IMAGES.BEACH} style={{ width: '100%', height: 280, borderRadius: 10 }} />
                                 <Spacer size={size.sm} />
                                 <Text style={{ color: 'black', fontSize: 18, fontWeight: "500" }}>Apartment With Pool</Text>
                                 <Spacer size={size.sm} />
@@ -1254,9 +1229,9 @@ const DetailsScreen = ({ navigation }) => {
                                 <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
                                     <Text style={{ fontSize: 18 }}>1/10</Text>
                                     <View style={{ flexDirection: 'row' }}>
-                                        <Image source={Left} style={{ height: 30, width: 35, borderRadius: 4 }} />
+                                        <Image source={IMAGES.LEFT} style={{ height: 30, width: 35, borderRadius: 4 }} />
                                         <SpacerHorizontal size={size.sh} />
-                                        <Image source={Right} style={{ height: 30, width: 35, borderRadius: 4 }} />
+                                        <Image source={IMAGES.RIGHT} style={{ height: 30, width: 35, borderRadius: 4 }} />
                                     </View>
                                 </View></View>}
                         </View>

@@ -21,6 +21,8 @@ import {
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
+import IMAGES from '../constants/ImagesContant'
+
 const CustomDrawer5 = ({ navigation }) => {
 
     return (

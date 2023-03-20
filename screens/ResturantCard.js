@@ -1,14 +1,10 @@
 import { View, Text, TouchableOpacity, Image, Dimensions, TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
 import Icons from './Icons/IconsSet';
-import PinkCircle from '../images/pinkcircle.png'
-import Avatar from '../images/avatar.png'
-import BlueHeart from '../images/blueheart.png'
-import BlueEye from '../images/blueeye.png'
-import BannerBlue from '../images/banner.png'
-import StarsImage from './StarsImage'
 import Spacer, { SpacerHorizontal } from './spacer'
 import { size } from './size'
+import IMAGES from '../constants/ImagesContant';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const ResturantCard = ({ onPress, onEyeClick }) => {
@@ -16,7 +12,7 @@ const ResturantCard = ({ onPress, onEyeClick }) => {
 
         <TouchableWithoutFeedback onPress={onPress} >
             <View style={{ height: 190, width: windowWidth - 50, alignSelf: "center", justifyContent: "space-between" }}>
-                <Image source={BannerBlue} resizeMode='cover' style={{ height: 190, position: 'absolute', alignSelf: 'center', borderRadius: 10, width: windowWidth - 50 }} />
+                <Image source={IMAGES.BANNERBLUE} resizeMode='cover' style={{ height: 190, position: 'absolute', alignSelf: 'center', borderRadius: 10, width: windowWidth - 50 }} />
 
                 {/* TOP VIEW */}
                 <View style={{ flexDirection: 'row', alignItems: 'center', alignSelf: "center", width: windowWidth - 50, padding: 10, justifyContent: 'space-between' }}>
@@ -24,13 +20,13 @@ const ResturantCard = ({ onPress, onEyeClick }) => {
 
                     <View style={{ flexDirection: 'row' }}>
                         <TouchableOpacity>
-                            <Image source={BlueHeart} resizeMode='contain' style={{ width: 30, height: 30, }} />
+                            <Image source={IMAGES.BLUEHEART} resizeMode='contain' style={{ width: 30, height: 30, }} />
                         </TouchableOpacity>
 
                         <SpacerHorizontal size={size.sm} />
                         <TouchableOpacity onPress={onEyeClick}>
 
-                            <Image source={BlueEye} resizeMode='contain' style={{ width: 30, height: 30, }} />
+                            <Image source={IMAGES.BLUEEYE} resizeMode='contain' style={{ width: 30, height: 30, }} />
                         </TouchableOpacity>
 
                     </View>
@@ -100,7 +96,7 @@ const ResturantCard = ({ onPress, onEyeClick }) => {
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                         <View style={{ flexDirection: 'row' }}>
-                            <Image source={PinkCircle} resizeMode='cover' style={{ width: 22, height: 22 }} />
+                            <Image source={IMAGES.PINKBURGER} resizeMode='cover' style={{ width: 22, height: 22 }} />
                             <SpacerHorizontal size={size.sm} />
                             <Text style={{ color: 'white', fontWeight: '700' }}>Restaurant</Text>
                             <SpacerHorizontal size={size.mid} />
@@ -108,7 +104,7 @@ const ResturantCard = ({ onPress, onEyeClick }) => {
                         </View>
 
                         <View style={{ flexDirection: 'row' }}>
-                            <Image source={Avatar} resizeMode='cover' style={{ width: 25, height: 25 }} />
+                            <Image source={IMAGES.GIRLAVATAR2} resizeMode='cover' style={{ width: 25, height: 25 }} />
                             <SpacerHorizontal size={size.sm} />
                             <Text style={{ color: 'white', fontWeight: '700' }}>By.Rose merry</Text>
                         </View>

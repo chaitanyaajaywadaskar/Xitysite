@@ -1,26 +1,16 @@
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native'
 import React from 'react'
-import Logo from '../images/xity.png'
 import Icons from './Icons/IconsSet';
-import PinkBg from '../images/pinkbg.png'
-import CarImg from '../images/carsimg.png'
-import Choco from '../images/chocoimg.png'
-import Francise from '../images/francise.png'
-import Furniture from '../images/furniture.png'
-import Hr from '../images/hr.png'
-import Reality from '../images/house.png'
-import Hotel from '../images/hotel.png'
-import Seafood from '../images/seafood.png'
-import Talent from '../images/talent.png'
-import Xpo from '../images/xpo.png'
 import Spacer from './spacer';
 import { size } from './size';
 import DrawerImgItem from './DrawerImgItem';
+import IMAGES from '../constants/ImagesContant';
+
 const CustomDrawer2 = ({ navigation }) => {
     return (
         <View style={styles.main}>
             <View style={styles.topView}>
-                <Image source={Logo} style={styles.imageStyle} />
+                <Image source={IMAGES.XITYLOGO} style={styles.imageStyle} />
                 <View style={styles.row42} >
                     <View style={styles.line} />
                     <TouchableOpacity onPress={() => {
@@ -34,25 +24,25 @@ const CustomDrawer2 = ({ navigation }) => {
                 </View>
             </View>
             <ScrollView style={{ padding: 15 }}>
-                <DrawerImgItem Img={CarImg} MainTitle='AUTOMOBILES' SubTitle="Automobiles and After Market" UnderlineText='Autochap.in' />
+                <DrawerImgItem Img={IMAGES.CARSIMG} MainTitle='AUTOMOBILES' SubTitle="Automobiles and After Market" UnderlineText='Autochap.in' />
                 <Spacer size={size.sm} />
-                <DrawerImgItem Img={PinkBg} MainTitle='FASHION' SubTitle="Women's fashion & Sisterhood" UnderlineText='Holychic.in' />
+                <DrawerImgItem Img={IMAGES.PINKBG} MainTitle='FASHION' SubTitle="Women's fashion & Sisterhood" UnderlineText='Holychic.in' />
                 <Spacer size={size.sm} />
-                <DrawerImgItem Img={Choco} MainTitle='FOOD & BEVARAGES' SubTitle="Food & Bevarages" UnderlineText='Chinmi.in' />
+                <DrawerImgItem Img={IMAGES.CHOCOIMG} MainTitle='FOOD & BEVARAGES' SubTitle="Food & Bevarages" UnderlineText='Chinmi.in' />
                 <Spacer size={size.sm} />
-                <DrawerImgItem Img={Francise} MainTitle='FRANCHISE' SubTitle="Liaisons and partners" UnderlineText='Franchiz.in' />
+                <DrawerImgItem Img={IMAGES.FRANCHISE} MainTitle='FRANCHISE' SubTitle="Liaisons and partners" UnderlineText='Franchiz.in' />
                 <Spacer size={size.sm} />
-                <DrawerImgItem Img={Furniture} MainTitle='FURNITURE' SubTitle="Home & office furniture" UnderlineText='Frnie.in' />
+                <DrawerImgItem Img={IMAGES.FURNITURE} MainTitle='FURNITURE' SubTitle="Home & office furniture" UnderlineText='Frnie.in' />
                 <Spacer size={size.sm} />
-                <DrawerImgItem Img={Hr} MainTitle='HR' SubTitle="Placements and development" UnderlineText='Hrita.in' />
+                <DrawerImgItem Img={IMAGES.HR} MainTitle='HR' SubTitle="Placements and development" UnderlineText='Hrita.in' />
                 <Spacer size={size.sm} />
-                <DrawerImgItem Img={Reality} MainTitle='REALITY' SubTitle="Properties & Accommodations" UnderlineText='Arazi.in' />
+                <DrawerImgItem Img={IMAGES.HOUSE} MainTitle='REALITY' SubTitle="Properties & Accommodations" UnderlineText='Arazi.in' />
                 <Spacer size={size.sm} />
-                <DrawerImgItem Img={Seafood} MainTitle='SEAFOOD' SubTitle="Seafood & recipes" UnderlineText='Vrfshie.in' />
+                <DrawerImgItem Img={IMAGES.SEAFOOD} MainTitle='SEAFOOD' SubTitle="Seafood & recipes" UnderlineText='Vrfshie.in' />
                 <Spacer size={size.sm} />
-                <DrawerImgItem Img={Talent} MainTitle='TALENT' SubTitle="Modern & Artists" UnderlineText='Zirka.in' />
+                <DrawerImgItem Img={IMAGES.TALENT} MainTitle='TALENT' SubTitle="Modern & Artists" UnderlineText='Zirka.in' />
                 <Spacer size={size.sm} />
-                <DrawerImgItem Img={Xpo} MainTitle='XPO' SubTitle="Exhibitions and launches" UnderlineText='Xzibit.in' />
+                <DrawerImgItem Img={IMAGES.XPO} MainTitle='XPO' SubTitle="Exhibitions and launches" UnderlineText='Xzibit.in' />
                 <Spacer size={size.sm} />
 
             </ScrollView>

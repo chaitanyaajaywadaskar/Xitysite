@@ -2,23 +2,17 @@ import { View, Text, StyleSheet, Dimensions, TextInput, Image, Modal, TouchableO
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import Icons from './Icons/IconsSet';
-import SkateImg from '../images/skateimg.png'
-import Map from '../images/map2.png'
-import SliderImg from '../images/slider.png'
-import Left from '../images/arrleft.png'
-import Right from '../images/arrright.png'
-import PinkBurger from '../images/pinkcircle.png'
 import Spacer, { SpacerHorizontal } from './spacer'
 import { size } from './size'
 import ResturantCard from './ResturantCard';
 import ExpandedView from './ExpandedView';
 import FloatButton from './FloatButton';
-import BannerBlue from '../images/banner.png'
 import QuickViewAlert from './QuickViewAlert';
 import CategoriesAlert from './CategoriesAlert';
 import BottomView from './BottomView';
 import { Dropdown } from 'react-native-element-dropdown';
 import CustomAppBar from './CustomAppBar';
+import IMAGES from '../constants/ImagesContant';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -70,8 +64,8 @@ const ListningScreen = ({ navigation }) => {
                     <View style={styles.overlayContainer}>
                         {
                             isMap ?
-                                <Image source={Map} style={styles.overlayImg} /> :
-                                <Image source={SkateImg} style={styles.overlayImg} />
+                                <Image source={IMAGES.MAP2} style={styles.overlayImg} /> :
+                                <Image source={IMAGES.SKATEBANNER} style={styles.overlayImg} />
                         }
                         <View style={styles.breadcrumView}>
                             <Text style={styles.breadcrumText}>Home</Text>
@@ -89,7 +83,7 @@ const ListningScreen = ({ navigation }) => {
                             <Text style={styles.breadcrumText}>Listing single</Text>
                         </View>
                         {isMap && <View style={{ height: 350, justifyContent: 'center', alignSelf: 'center' }}>
-                            <Image source={BannerBlue} style={{ height: 180, alignSelf: 'center', position: 'absolute', justifyContent: 'center', borderRadius: 8, width: windowWidth * 0.7 }} />
+                            <Image source={IMAGES.BANNERBLUE} style={{ height: 180, alignSelf: 'center', position: 'absolute', justifyContent: 'center', borderRadius: 8, width: windowWidth * 0.7 }} />
                             <View style={{ position: 'absolute', right: -40, }}>
                                 <TouchableOpacity style={{ width: 25, height: 25, alignItems: 'center', justifyContent: 'center', borderRadius: 4, backgroundColor: 'white' }}>
                                     <Icons.Entypo name={'plus'} size={20} color='#0C3982' style={{ alignSelf: 'center' }} />
@@ -131,7 +125,7 @@ const ListningScreen = ({ navigation }) => {
                                         <SpacerHorizontal size={size.sh} />
                                         <Text style={{ color: 'black', }}>Luxary Restaurant</Text>
                                     </View>
-                                    <Image source={PinkBurger} resizeMode='contain' style={{ position: 'absolute', right: 25, top: -20, width: 40, height: 40 }} />
+                                    <Image source={IMAGES.PINKBURGER} resizeMode='contain' style={{ position: 'absolute', right: 25, top: -20, width: 40, height: 40 }} />
 
                                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -152,7 +146,7 @@ const ListningScreen = ({ navigation }) => {
                             <TouchableOpacity onPress={() => {
                                 setModalVisible(true)
                             }} style={styles.blueBox}>
-                                <Image source={SliderImg} resizeMode={'contain'} style={styles.sliderImg} />
+                                <Image source={IMAGES.SLIDER} resizeMode={'contain'} style={styles.sliderImg} />
                             </TouchableOpacity>
                             <SpacerHorizontal size={size.sm} />
                             <View>
@@ -243,7 +237,7 @@ const ListningScreen = ({ navigation }) => {
                     <Spacer size={size.lg} />
                     <View style={styles.bottomView}>
                         <TouchableOpacity style={styles.arrowBtn}>
-                            <Image source={Left} />
+                            <Image source={IMAGES.ARRLEFT} />
                         </TouchableOpacity>
                         <View style={styles.numBtn}>
                             <Text>1</Text>
@@ -258,7 +252,7 @@ const ListningScreen = ({ navigation }) => {
                             <Text>15</Text>
                         </View>
                         <TouchableOpacity style={styles.arrowBtn}>
-                            <Image source={Right} />
+                            <Image source={IMAGES.ARRRIGHT} />
                         </TouchableOpacity>
                     </View>
                     <Spacer size={size.xxxlg} />

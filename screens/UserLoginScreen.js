@@ -2,8 +2,6 @@ import { View, Text, StyleSheet, Dimensions, FlatList, ScrollView, TouchableOpac
 import React, { useState } from 'react'
 import Spacer from './spacer'
 import { size } from './size'
-import Logo from '../images/logo.png'
-import LoginBanner from '../images/loginbanner.png'
 import ImageTextInput from './ImageTextInput'
 import OTPField from './Otpfeild'
 import ExpandedView from './ExpandedView'
@@ -16,6 +14,8 @@ import {
 import CustomAppBar from './CustomAppBar'
 import BottomView from './BottomView'
 import ApiManager from './ApiManager'
+import IMAGES from '../constants/ImagesContant';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const UserLoginScreen = ({ navigation }) => {
@@ -64,7 +64,6 @@ const UserLoginScreen = ({ navigation }) => {
                 console.log(response);
                 if (response.status === 200) {
                     alert("User created Successfully")
-
                 }
                 else {
                     alert("Faild")
@@ -100,7 +99,7 @@ const UserLoginScreen = ({ navigation }) => {
 
                         <View style={{ height: responsiveHeight(12) }} />
 
-                        <Image source={Logo} style={styles.imageStylelogo} />
+                        <Image source={IMAGES.LOGO} style={styles.imageStylelogo} />
                         <Spacer size={size.xlg} />
                         <Text style={styles.textStyle}>Log in to the account</Text>
                         <Spacer size={size.sh} />

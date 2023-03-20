@@ -1,7 +1,5 @@
 import { View, Text, Image, Dimensions, StyleSheet, ActivityIndicator, TouchableOpacity, ScrollView } from 'react-native'
-import React, { useState, useContext, useEffect } from 'react'
-import Bg from '../images/bgpeople.png'
-import Home from '../images/fhome.png'
+import React, { useState, useEffect } from 'react'
 import FloatButton from './FloatButton'
 import Spacer, { SpacerHorizontal } from './spacer';
 import { size } from './size';
@@ -17,6 +15,7 @@ import {
 } from "react-native-responsive-dimensions";
 import CustomAppBar from './CustomAppBar'
 import ApiManager from './ApiManager'
+import IMAGES from '../constants/ImagesContant';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -124,7 +123,7 @@ const ServiceScreen = ({ navigation }) => {
     return (
         <View >
 
-            <Image source={Bg} style={styles.imgStyle} />
+            <Image source={IMAGES.SERVICEBG} style={styles.imgStyle} />
             <CustomAppBar />
 
             <Pressable onPress={() => {
@@ -227,7 +226,7 @@ const ServiceScreen = ({ navigation }) => {
                             }} style={{ flexDirection: 'row', alignSelf: 'center', backgroundColor: '#0C3982', paddingHorizontal: 20, paddingVertical: 15, borderRadius: 5 }} >
                                 <Text style={{ color: 'white', fontWeight: '700', fontSize: responsiveFontSize(2), fontFamily: 'Roboto-Regular' }}>Back to Home</Text>
                                 <SpacerHorizontal size={size.sm} />
-                                <Image source={Home} style={{ height: 20, width: 20 }} />
+                                <Image source={IMAGES.HOME} style={{ height: 20, width: 20 }} />
                             </TouchableOpacity>
                         </View>
                         <View style={{ height: responsiveHeight(20) }} />

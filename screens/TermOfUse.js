@@ -1,6 +1,5 @@
 import { View, Text, Image, Dimensions, ScrollView, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
-import Term from '../images/term.png'
 import NumberComponent from './NumberComponent';
 import AlphaList from './AlphaList';
 import ListContent from './ListContent';
@@ -8,6 +7,7 @@ import CustomAppBar from './CustomAppBar';
 import FloatButton from './FloatButton';
 import ExpandedView from './ExpandedView';
 import BottomView from './BottomView';
+import IMAGES from '../constants/ImagesContant'
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -18,7 +18,7 @@ const TermOfUse = ({ navigation }) => {
             <CustomAppBar />
             <ScrollView>
                 <View style={{ height: 250, width: '100%', marginBottom: 20, marginTop: 60 }} >
-                    <Image source={Term} style={{ height: 250, width: '100%', position: 'absolute' }} />
+                    <Image source={IMAGES.TERM} style={{ height: 250, width: '100%', position: 'absolute' }} />
                     <View style={{ height: 250, justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ textAlign: 'center', fontWeight: '700', fontSize: 24, color: 'white' }}>Terms of website use
                         </Text>

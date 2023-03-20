@@ -1,16 +1,11 @@
 import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
-import Banner from '../images/normal_banner.png'
-import circleImage from '../images/circleImage.png'
-import PinkCircle from '../images/pinkcircle.png'
-import Check from '../images/check.png'
-import Location from '../images/locations.png'
-import ComboLogo from '../images/logocombo.png'
 import Spacer, { SpacerHorizontal } from './spacer';
 import { size } from './size';
 import Icons from './Icons/IconsSet';
 import StarsImage from './StarsImage'
 import BannerTopView from './BannerTopView'
+import IMAGES from '../constants/ImagesContant';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -19,7 +14,7 @@ const ImageDescriptionCard = ({ onClaimClick, onEyeClick, isThereBottomMargin })
     return (
         <View style={{ height: 430, marginBottom: isThereBottomMargin ? 20 : 0, width: windowWidth * 0.9, alignSelf: 'center', borderRadius: 6 }}>
 
-            <Image source={Banner} resizeMode='contain' style={{ width: windowWidth * 0.9, height: 215, }} />
+            <Image source={IMAGES.PLAINBANNER} resizeMode='contain' style={{ width: windowWidth * 0.9, height: 215, }} />
             <BannerTopView onEyeClick={onEyeClick} />
             <View style={{ position: 'absolute', top: 140, left: 10 }}>
                 <View style={{ justifyContent: 'flex-end', }}>
@@ -54,13 +49,14 @@ const ImageDescriptionCard = ({ onClaimClick, onEyeClick, isThereBottomMargin })
             </View>
             <View style={{ width: windowWidth * 0.9, height: 250, backgroundColor: 'white', borderColor: '#BBBBBB', borderWidth: 1, borderRadius: 30, alignSelf: 'center', position: 'absolute', bottom: 0 }}>
                 <View style={{ position: 'absolute', right: 20, top: -40 }}>
-                    <Image source={circleImage} resizeMode='contain' style={{ width: 65, height: 65, borderRadius: 35 }} />
+                    <Image source={IMAGES.GIRLAVATAR2} resizeMode='contain' style={{ width: 65, height: 65, borderRadius: 35 }} />
 
                 </View>
                 <View style={{ paddingHorizontal: 20, paddingVertical: 25 }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingRight: 18 }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <Image source={Check} resizeMode='contain' style={{ width: 18, height: 18, }} />
+                            <Icons.AntDesign name='checkcircle' size={18} color='#0EBC31' />
+
                             <SpacerHorizontal size={size.sh} />
                             <Text style={{ fontSize: 16, fontWeight: '600', color: 'black' }}>Luxary Restaurant</Text>
                         </View>
@@ -70,7 +66,8 @@ const ImageDescriptionCard = ({ onClaimClick, onEyeClick, isThereBottomMargin })
                     </View>
                     <Spacer size={size.sh} />
                     <View style={{ flexDirection: 'row' }}>
-                        <Image source={Location} resizeMode='contain' style={{ width: 15, height: 15, }} />
+                        <Icons.Ionicons name='location-sharp' size={18} color='#4286F5' />
+
                         <SpacerHorizontal size={size.sh} />
                         <Text style={{ fontSize: 12, }}>27th Brooklyn New York, USA</Text>
                         <SpacerHorizontal size={size.mid} />
@@ -86,7 +83,7 @@ const ImageDescriptionCard = ({ onClaimClick, onEyeClick, isThereBottomMargin })
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Text style={{ fontSize: 17, fontWeight: '600', color: 'black' }}>Facilities: </Text>
                         <SpacerHorizontal size={size.sh} />
-                        <Image source={ComboLogo} resizeMode='contain' style={{ width: 100, height: 25, }} />
+                        <Image source={IMAGES.LOGOCOMBO} resizeMode='contain' style={{ width: 100, height: 25, }} />
 
                     </View>
 
@@ -94,7 +91,7 @@ const ImageDescriptionCard = ({ onClaimClick, onEyeClick, isThereBottomMargin })
                     <Spacer size={size.sh} />
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                         <View style={{ flexDirection: 'row' }}>
-                            <Image source={PinkCircle} resizeMode='cover' style={{ width: 22, height: 22 }} />
+                            <Image source={IMAGES.PINKBURGER} resizeMode='cover' style={{ width: 22, height: 22 }} />
                             <SpacerHorizontal size={size.sm} />
                             <Text style={{ fontWeight: '600' }}>Restaurant</Text>
                             <SpacerHorizontal size={size.mid} />

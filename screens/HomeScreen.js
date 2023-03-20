@@ -6,9 +6,6 @@ import Icons from './Icons/IconsSet';
 import Spacer, { SpacerHorizontal } from './spacer';
 import { size } from './size';
 import { TouchableHighlight } from 'react-native-gesture-handler';
-import girlwithcurl from '../images/curlygirl.png'
-import lakeBg from '../images/lakebg.png'
-import brownGirl from '../images/brownmundi.png'
 import {
     responsiveHeight,
     responsiveWidth,
@@ -25,18 +22,7 @@ import ChannelButton from './ChannelButton';
 import Countries from './Countries';
 import Subscribebutton from './Subscribebutton';
 import Contents from './Contents';
-import Bangalore from '../images/Bangalore.png'
-import Chennai from '../images/Chennai.png'
-import Mumbai from '../images/Mumbai.png'
-import Hyderabad from '../images/Hyderabad.png'
-import Coimbtare from '../images/Coimbtare.png'
-import Pune from '../images/Pune.png'
-import TownName from '../images/TownName.png'
-import Promovideo from '../images/Promovideo.png'
-import CountriesImage from '../images/CountriesImage.png'
-import Android from '../images/Android.png'
-import AppStore from '../images/AppStore.png'
-import Googlepay from '../images/Googlepay.png'
+import IMAGES from '../constants/ImagesContant';
 import ButtonComponent from './ButtonComponent';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -79,6 +65,7 @@ export default function HomeScreen({ navigation }) {
                         style={styles.backgroundVideo} resizeMode='cover' repeat={true} />
                     <View style={[styles.backgroundVideo, { backgroundColor: 'rgba(0,0,0,0.4)' }]} />
                     <View style={{ height: responsiveHeight(35) }} />
+
                     <Text style={styles.textStyle}>MAKE YOUR MARK.</Text>
                     <Text style={styles.textStyle}>CHANGE OUR WORLD.</Text>
                     <View style={styles.line} />
@@ -140,18 +127,18 @@ export default function HomeScreen({ navigation }) {
                 <View style={{ width: '100%', backgroundColor: '#EFF5FF', padding: 25 }}>
                     <Overlapping overlaytitle='CITIES CATALOGUE' title='Explore Recent Cities' />
 
-                    <CitiesComponent city='Bangalore' Image={<Image source={Bangalore} style={styles.ImageView} />} />
-                    <CitiesComponent city='Chennai' Image={<Image source={Chennai} style={styles.ImageView} />} />
-                    <CitiesComponent city='Mumbai' Image={<Image source={Mumbai} style={styles.ImageView} />} />
-                    <CitiesComponent city='Hyderabad' Image={<Image source={Hyderabad} style={styles.ImageView} />} />
-                    <CitiesComponent city='Coimbtare' Image={<Image source={Coimbtare} style={styles.ImageView} />} />
-                    <CitiesComponent city='Pune' Image={<Image source={Pune} style={styles.ImageView} />} />
+                    <CitiesComponent city='Bangalore' Image={<Image source={IMAGES.BANGLORE} style={styles.ImageView} />} />
+                    <CitiesComponent city='Chennai' Image={<Image source={IMAGES.CHENNAI} style={styles.ImageView} />} />
+                    <CitiesComponent city='Mumbai' Image={<Image source={IMAGES.MUMBAI} style={styles.ImageView} />} />
+                    <CitiesComponent city='Hyderabad' Image={<Image source={IMAGES.HYDRABAD} style={styles.ImageView} />} />
+                    <CitiesComponent city='Coimbtare' Image={<Image source={IMAGES.COIMBTARE} style={styles.ImageView} />} />
+                    <CitiesComponent city='Pune' Image={<Image source={IMAGES.PUNE} style={styles.ImageView} />} />
                     <ButtonComponent Title='View All Cities' />
                 </View>
                 <View style={{ backgroundColor: 'white', paddingTop: 25 }}>
                     <Overlapping overlaytitle='EXPLORE PIN CODES' title='Latest Pin Codes' />
                     <View style={styles.subView}>
-                        <Image source={TownName} style={{ height: 250, width: '100%', borderRadius: 6, marginBottom: 15 }} />
+                        <Image source={IMAGES.TOWNNAME} style={{ height: 250, width: '100%', borderRadius: 6, marginBottom: 15 }} />
                         <TownNameComponent num={560022} title='TownName' subtitle='0 Listings' />
                     </View>
                     <MultipleImage num={603103} />
@@ -162,7 +149,7 @@ export default function HomeScreen({ navigation }) {
                     <MultipleImage num={600119} />
                 </View>
                 <View style={{ height: 400, width: '100%', marginVertical: 20, justifyContent: 'center' }}>
-                    <Image source={Promovideo} style={{ height: 400, width: '100%', position: 'absolute' }} />
+                    <Image source={IMAGES.PROMO} style={{ height: 400, width: '100%', position: 'absolute' }} />
                     <Text style={styles.smallText}>Aliquam erat volutpat interdum</Text>
 
                     <View style={{ height: 260, width: 250, alignSelf: 'center' }}>
@@ -172,7 +159,7 @@ export default function HomeScreen({ navigation }) {
                     </View>
                 </View>
                 <View style={{ height: 700, width: '100%', alignSelf: 'center', paddingTop: 30 }}>
-                    <Image source={CountriesImage}
+                    <Image source={IMAGES.COUNTRYIMAGE}
                         style={{ position: 'absolute', height: 700, width: '100%' }} />
 
                     <Countries num={1} term='Countries' />
@@ -195,13 +182,13 @@ export default function HomeScreen({ navigation }) {
                 </View>
 
                 <View style={styles.androidimage}>
-                    <Image source={Android} resizeMode='cover' style={{ height: 450, width: 220, alignSelf: 'center' }} />
+                    <Image source={IMAGES.ANDROID} resizeMode='cover' style={{ height: 450, width: 220, alignSelf: 'center' }} />
                 </View>
 
                 <View style={{ alignSelf: 'center', marginRight: 25, marginLeft: 15 }}>
                     <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
-                        <Image source={AppStore} style={styles.playstorebutton} />
-                        <Image source={Googlepay} style={styles.playstorebutton} />
+                        <Image source={IMAGES.APPSTORE} style={styles.playstorebutton} />
+                        <Image source={IMAGES.GOOGLEPLAY} style={styles.playstorebutton} />
                     </View>
                     <Text style={styles.boldText}>
                         Xity is a Directory + Marketplace + Community platform
@@ -220,7 +207,7 @@ export default function HomeScreen({ navigation }) {
                     }}>
                         <View style={{ height: 350, width: '100%', marginTop: 50, backgroundColor: '#8BB7FF', alignSelf: 'center' }}>
                             <View style={{ width: '100%', height: 380, top: 120, position: 'absolute' }}>
-                                <Image source={girlwithcurl} resideMode='contain' style={{ width: '100%', height: 388, }} />
+                                <Image source={IMAGES.GIRLWITHCURL} resideMode='contain' style={{ width: '100%', height: 388, }} />
                                 <View style={{ width: 50, height: 50, backgroundColor: '#012C72', alignSelf: 'center', alignItems: 'center', position: 'absolute', bottom: -28, justifyContent: 'center', borderRadius: 25 }}>
                                     <Icons.FontAwesome name='pause' color='white' size={12} />
                                 </View>
@@ -235,7 +222,7 @@ export default function HomeScreen({ navigation }) {
                     <View style={{ backgroundColor: '#8BB7FF', height: 4, width: 50 }} />
                     <Spacer size={size.lg} />
                     <View style={{ flexDirection: 'row' }}>
-                        <Image source={brownGirl} resideMode='contain' style={{ width: 70, height: 70, }} />
+                        <Image source={IMAGES.BROWNMUNDE} resideMode='contain' style={{ width: 70, height: 70, }} />
                         <SpacerHorizontal size={size.mid} />
                         <View style={{ alignSelf: 'center' }}>
                             <Text style={{ color: 'black', fontSize: responsiveFontSize(3), fontFamily: 'Roboto-Medium' }}>Donald Simpsom</Text>
@@ -261,7 +248,7 @@ export default function HomeScreen({ navigation }) {
                             </View>} />
                     <Spacer size={size.xxxlg} />
                     <View style={{ width: '100%', height: 400, alignItems: 'center', justifyContent: 'center' }}>
-                        <Image source={lakeBg} style={{ width: '100%', borderRadius: 15, position: 'absolute', height: 400 }} />
+                        <Image source={IMAGES.LAKEBG} style={{ width: '100%', borderRadius: 15, position: 'absolute', height: 400 }} />
                         <Text style={{ color: 'white', textAlign: 'center', fontFamily: 'Roboto-Medium', fontWeight: '800', fontSize: responsiveFontSize(3.5) }}>Do You Have Any{'\n'} Questions ?</Text>
                         <Spacer size={size.mid} />
                         <Text style={{ color: 'white', fontSize: responsiveFontSize(2.3), marginHorizontal: 10, textAlign: 'center' }}>

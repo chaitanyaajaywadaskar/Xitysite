@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import Icons from './Icons/IconsSet';
-import mainImage from '../images/mainImage.png'
 import BottomButtons from './BottomButtons'
 import Multiplebuttons from './Multiplebuttons'
 import CustomAppBar from './CustomAppBar'
@@ -15,6 +14,8 @@ import {
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
+import IMAGES from '../constants/ImagesContant'
+
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const FeedbackFouthScreen = ({ navigation }) => {
@@ -26,7 +27,7 @@ const FeedbackFouthScreen = ({ navigation }) => {
                 <View style={{ height: height * 0.9, }}>
                     <Spacer size={size.mid} />
 
-                    <Image source={mainImage} style={{ position: 'absolute', height: height, width: width }} />
+                    <Image source={IMAGES.MAINIMAGE} style={{ position: 'absolute', height: height, width: width }} />
                     <View style={{ marginLeft: 15, marginRight: 10, marginTop: height * 0.15, alignItems: 'flex-start' }}>
                         <View style={{ flexDirection: 'row', marginBottom: 15, }}>
                             <Text style={{ color: 'white', fontSize: responsiveFontSize(2), }}>4</Text>

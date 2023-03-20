@@ -1,8 +1,5 @@
 import { FlatList, Image, Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import Photographer from '../images/photographer.png'
-import Beardman from '../images/beardman.png'
-import Girl from '../images/artgirl.png'
 import Spacer, { SpacerHorizontal } from './spacer'
 import { size } from './size'
 import Icons from './Icons/IconsSet'
@@ -12,16 +9,14 @@ import {
     responsiveFontSize
 } from "react-native-responsive-dimensions"
 import { Dropdown } from 'react-native-element-dropdown';
-import ResturantCard from './ResturantCard'
 import ImageDescriptionCard from './ImageDescriptionCard'
-import IconTitleDesc from './IconTitleDesc'
-import SocialIcon from './SocialIcon'
 import IconTitleDesc2 from './IconTitleDesc2'
 import GreyTextInput from './GreyTextInput'
 import BottomView from './BottomView'
 import ExpandedView from './ExpandedView'
 import FloatButton from './FloatButton'
 import CustomAppBar from './CustomAppBar'
+import IMAGES from '../constants/ImagesContant'
 
 const data1 = [
     { label: 'Feature1 ', value: '1' },
@@ -64,14 +59,14 @@ const PartnerManagerScreen = ({ navigation }) => {
                                 borderTopRightRadius: 15,
                                 overflow: "hidden", position: 'absolute',
                             }}>
-                                <Image source={Photographer} resizeMode='cover' style={{ width: responsiveWidth(90), height: responsiveHeight(45), }} />
+                                <Image source={IMAGES.PHOTOGRAPHER} resizeMode='cover' style={{ width: responsiveWidth(90), height: responsiveHeight(45), }} />
                             </View>
                             <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 10, paddingHorizontal: 25, alignSelf: 'flex-end', borderRadius: 5, backgroundColor: '#012C72' }}>
                                 <Text style={{ color: 'white', fontFamily: 'Roboto-Regular' }}>Follow</Text>
                                 <SpacerHorizontal size={size.sm} />
                                 <Icons.FontAwesome5 name='user-plus' color='#6799EC' />
                             </TouchableOpacity>
-                            <Image source={Beardman} style={{ width: responsiveWidth(22), borderWidth: 5, borderColor: 'white', borderRadius: 50, height: responsiveWidth(22) }} />
+                            <Image source={IMAGES.BEARDMAN} style={{ width: responsiveWidth(22), borderWidth: 5, borderColor: 'white', borderRadius: 50, height: responsiveWidth(22) }} />
                             <View>
                                 <Text style={{ color: 'white', fontFamily: 'Roboto-Medium', fontWeight: '700', fontSize: responsiveFontSize(2) }}>Alisa Noory</Text>
                                 <Text style={{ color: 'white', fontFamily: 'Roboto-Regular', fontSize: responsiveFontSize(1.8) }}>Company name</Text>
@@ -149,7 +144,7 @@ const PartnerManagerScreen = ({ navigation }) => {
                             <View style={{ height: 1, backgroundColor: '#B4B4B4', }} />
                             <View style={{ flexDirection: 'row', paddingVertical: 20, paddingLeft: 20, justifyContent: 'space-between' }}>
                                 <View style={{ flexDirection: 'row', }}>
-                                    <Image source={Girl} style={{ height: responsiveWidth(15), width: responsiveWidth(15) }} />
+                                    <Image source={IMAGES.ARTGIRL} style={{ height: responsiveWidth(15), width: responsiveWidth(15) }} />
                                     <SpacerHorizontal size={size.sm} />
                                     <View style={{ justifyContent: 'center' }}>
                                         <Text style={{ fontFamily: 'Roboto-Medium', color: 'black', fontSize: responsiveFontSize(2) }}>Alisa Noory</Text>

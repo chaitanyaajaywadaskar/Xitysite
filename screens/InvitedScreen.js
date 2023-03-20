@@ -1,16 +1,10 @@
 import { View, Text, StyleSheet, Dimensions, TextInput, Modal, ScrollView, TouchableOpacity, Image, Pressable } from 'react-native'
 import React, { useState, } from 'react'
-import Bg from '../images/background.png'
-
 import Spacer, { SpacerHorizontal } from './spacer'
 import { size } from './size'
-import ig from '../images/instagram.png'
-import fb from '../images/fb.png'
-import twit from '../images/twitter.png'
 import Icons from './Icons/IconsSet';
 import ImageTextInput from './ImageTextInput'
 import ApiManager from './ApiManager'
-import vk from '../images/vk.png'
 import FloatButton from './FloatButton'
 import ExpandedView from './ExpandedView'
 import BottomView from './BottomView'
@@ -20,6 +14,8 @@ import {
     responsiveFontSize
 } from "react-native-responsive-dimensions";
 import CustomAppBar from './CustomAppBar'
+import IMAGES from '../constants/ImagesContant';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const InvitedScreen = ({ navigation }) => {
@@ -158,7 +154,7 @@ const InvitedScreen = ({ navigation }) => {
                         </View></View>
                 </Modal>
 
-                <Image source={Bg} resizeMode='cover' style={styles.imgStyle} />
+                <Image source={IMAGES.PINCODEBG} resizeMode='cover' style={styles.imgStyle} />
                 <CustomAppBar />
                 <ScrollView>
 

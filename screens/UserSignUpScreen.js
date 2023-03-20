@@ -1,22 +1,20 @@
 import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity, Image, Pressable, ActivityIndicator } from 'react-native'
 import React, { useState } from 'react'
-
 import Spacer, { SpacerHorizontal } from './spacer'
 import { size } from './size'
-import Logo from '../images/logo.png'
 import RadioGroup, { RadioButton, RadioButtonProps } from 'react-native-radio-buttons-group';
 import ImageTextInput from './ImageTextInput'
 import ExpandedView from './ExpandedView'
 import FloatButton from './FloatButton'
-import user_login from './UserApis'
 import {
     responsiveHeight,
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
-import axios from 'axios';
 import CustomAppBar from './CustomAppBar'
 import ApiManager from './ApiManager'
+import IMAGES from '../constants/ImagesContant';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -29,12 +27,6 @@ const UserSignUpScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [pass, setPass] = useState('');
-
-    // const [fullname, setFullname] = useState('')
-    // const [usernm, setUsernm] = useState('')
-    // const [eemail, setEEmail] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [phonenumber, setPhonenumber] = useState('');
 
     const onCreate = () => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
@@ -61,11 +53,8 @@ const UserSignUpScreen = ({ navigation }) => {
         }
         else if (pass.length <= 5) {
             alert('Password should be more than 6 characters')
-        }
-
-        else {
+        } else {
             handleSignUp();
-
         }
     }
     const handleSignUp = () => {
@@ -95,27 +84,9 @@ const UserSignUpScreen = ({ navigation }) => {
                 console.log(error);
                 setLogin(false)
                 alert("Failed, Please provide valid details")
-
             });
     }
-    // const functionComb = () => {
-    //     onCreate();
-    //     handleSignUp();
-    // }
-    // const handleSignUp = () => {
-    //     user_login({
 
-    //         fullname: 'guddu',
-    //         username: 'guddu',
-    //         email: 'guddu@gmail.com',
-    //         phoneno: '788854652',
-    //         password: '123456'
-    //     }).then((res) => {
-    //         console.log(res.status)
-    //     }).catch(err => {
-    //         console.log(err.status)
-    //     })
-    // }
     return (
         <Pressable onPress={() => {
             setExpand(false)
@@ -129,7 +100,7 @@ const UserSignUpScreen = ({ navigation }) => {
                             <ActivityIndicator size='large' color='#4286F5' />
                         </View>}
                         <View style={{ height: responsiveHeight(12) }} />
-                        <Image source={Logo} style={styles.imageStylelogo} />
+                        <Image source={IMAGES.LOGO} style={styles.imageStylelogo} />
                         <Spacer size={size.xlg} />
                         {/* <Text style={styles.textStyle}>Create your account</Text>
                         <Spacer size={size.xxlg} /> */}

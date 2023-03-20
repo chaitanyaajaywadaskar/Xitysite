@@ -1,20 +1,16 @@
 import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
-import Logo from '../images/logo.png'
-import UserImg from '../images/user.png'
-import Todo from '../images/todo.png'
-import Activity from '../images/activity.png'
-import Chat from '../images/chat.png'
-import Contact from '../images/contact.png'
 import Spacer from './spacer'
 import { size } from './size'
 import Icons from './Icons/IconsSet'
 import DrawerIconTextItem from './DrawerIconTextItem'
+import IMAGES from '../constants/ImagesContant'
+
 const CustomDrawer4 = ({ navigation }) => {
     return (
         <View style={{ flex: 1, backgroundColor: '#4286F5', }}>
             <View style={[styles.blueContainer, { justifyContent: 'space-between' }]}>
-                <Image source={Logo} resizeMode='contain' style={styles.logo} />
+                <Image source={IMAGES.LOGO} resizeMode='contain' style={styles.logo} />
                 <View style={{ flexDirection: 'row' }}>
                     <View style={{ backgroundColor: 'white', width: 1.5 }} />
                     <TouchableOpacity onPress={() => {
@@ -29,7 +25,7 @@ const CustomDrawer4 = ({ navigation }) => {
             </View>
             <ScrollView style={{ flex: 1, backgroundColor: '#4286F5', paddingHorizontal: 15, paddingVertical: 20 }}>
                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                    <Image source={UserImg} style={{ width: 70, height: 70 }} />
+                    <Image source={IMAGES.USERIMG} style={{ width: 70, height: 70 }} />
                     <Spacer size={size.sh} />
                     <Text style={{ color: 'white', fontWeight: '700', fontSize: 18 }}>Username</Text>
                     <Spacer size={size.xxlg} />
@@ -52,27 +48,27 @@ const CustomDrawer4 = ({ navigation }) => {
                         TrailingIcon='right'
                     />
                     <DrawerIconTextItem LeadingIcon={
-                        <Image source={Todo} resizeMode='contain' style={{ height: 22, width: 22 }} />
+                        <Image source={IMAGES.TODO} resizeMode='contain' style={{ height: 22, width: 22 }} />
                     }
                         Title='Things To Do'
                         TrailingIcon='right'
                     />
                     <DrawerIconTextItem LeadingIcon={
-                        <Image source={Activity} resizeMode='contain' style={{ height: 22, width: 22 }} />
+                        <Image source={IMAGES.ACTIVITY} resizeMode='contain' style={{ height: 22, width: 22 }} />
                     }
 
                         Title='Activity'
                         TrailingIcon='right'
                     />
                     <DrawerIconTextItem LeadingIcon={
-                        <Image source={Chat} resizeMode='contain' style={{ height: 22, width: 22 }} />
+                        <Image source={IMAGES.CHAT} resizeMode='contain' style={{ height: 22, width: 22 }} />
                     }
 
                         Title='Chats'
                         TrailingIcon='right'
                     />
                     <DrawerIconTextItem onPress={() => { navigation.navigate('Contact') }} LeadingIcon={
-                        <Image source={Contact} resizeMode='contain' style={{ height: 22, width: 22 }} />
+                        <Image source={IMAGES.CONTACT} resizeMode='contain' style={{ height: 22, width: 22 }} />
                     }
 
                         Title='Contacts'
