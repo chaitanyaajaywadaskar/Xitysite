@@ -2,13 +2,13 @@ import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity, Image
 import React, { useState } from 'react'
 import Spacer from './spacer'
 import { size } from './size'
-import Logo from '../images/logo.png'
 import ImageTextInput from './ImageTextInput'
 import OTPField from './Otpfeild'
 import ExpandedView from './ExpandedView'
 import FloatButton from './FloatButton'
 import CustomAppBar from './CustomAppBar'
 import BottomView from './BottomView'
+import IMAGES from '../constants/ImagesContant';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -25,7 +25,7 @@ const LoginScreen = ({ navigation }) => {
                 <View style={{ backgroundColor: '#EFF5FF' }}>
                     <ScrollView>
                         <View style={styles.styleCenter}>
-                            <Image source={Logo} style={styles.imageStylelogo} />
+                            <Image source={IMAGES.LOGO} style={styles.imageStylelogo} />
                             <Spacer size={size.xlg} />
                             {/* <Text style={styles.textStyle}>Log in to the account</Text>
                             <Spacer size={size.sh} />

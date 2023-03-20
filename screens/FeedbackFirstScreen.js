@@ -1,6 +1,5 @@
 import { View, Text, Image, StyleSheet, TextInput, Dimensions, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState } from 'react'
-import mainImage from '../images/mainImage.png'
 import Icons from './Icons/IconsSet';
 import BottomButtons from './BottomButtons'
 import CustomAppBar from './CustomAppBar';
@@ -14,6 +13,8 @@ import {
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
+import IMAGES from '../constants/ImagesContant'
+
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const FeedbackFirstScreen = ({ navigation }) => {
@@ -35,7 +36,7 @@ const FeedbackFirstScreen = ({ navigation }) => {
             <CustomAppBar />
             <ScrollView>
                 <View style={{ height: height * 0.9 }}>
-                    <Image source={mainImage} style={{ position: 'absolute', height: height, width: width }} />
+                    <Image source={IMAGES.MAINIMAGE} style={{ position: 'absolute', height: height, width: width }} />
                     <View style={{ padding: 25, marginTop: height * 0.20, }}>
                         <View style={{ flexDirection: 'row', }}>
                             <Text style={{ color: 'white', fontSize: responsiveFontSize(2), fontWeight: '800', fontFamily: 'Raleway-Medium' }}>1</Text>

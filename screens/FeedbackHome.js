@@ -1,11 +1,12 @@
 import { View, Text, TouchableOpacity, Dimensions, Image, StyleSheet, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import Icons from './Icons/IconsSet';
-import mainImage from '../images/mainImage.png'
 import CustomAppBar from './CustomAppBar';
 import BottomView from './BottomView';
 import ExpandedView from './ExpandedView';
 import FloatButton from './FloatButton';
+import IMAGES from '../constants/ImagesContant'
+
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const FeedbackHome = ({ navigation }) => {
@@ -16,7 +17,7 @@ const FeedbackHome = ({ navigation }) => {
             <CustomAppBar />
             <ScrollView >
                 <View style={{ height: height }}>
-                    <Image source={mainImage} style={{ position: 'absolute', height: height, width: width }} />
+                    <Image source={IMAGES.MAINIMAGE} style={{ position: 'absolute', height: height, width: width }} />
                     <View style={{ backgroundColor: 'rgba(255,255,255,0.8)', position: 'absolute', height: height, width: width * 0.9, alignSelf: 'center' }}>
                     </View>
                     <View style={styles.centered}>

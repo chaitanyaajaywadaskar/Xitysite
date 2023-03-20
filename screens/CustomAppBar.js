@@ -2,11 +2,12 @@ import { View, Text, TextInput, Image, StyleSheet, TouchableWithoutFeedback, Tou
 import React, { useState } from 'react'
 import Icon from './Icons/IconsSet'
 import { Appbar } from 'react-native-paper'
-import Logo from '../images/logo.png'
-import UserImg from '../images/user.png'
+
 import { useNavigation } from '@react-navigation/native';
 import { SpacerHorizontal } from './spacer'
 import { size } from './size'
+import IMAGES from '../constants/ImagesContant';
+
 export default function CustomAppBar() {
     const navigation = useNavigation();
     const [isExpand, setExpand] = useState(false)
@@ -27,7 +28,7 @@ export default function CustomAppBar() {
                 <TouchableWithoutFeedback style={style.imageStyle} onPress={() => {
                     navigation.navigate('Home')
                 }}>
-                    <Image source={Logo} style={style.imageStyle} />
+                    <Image source={IMAGES.LOGO} style={style.imageStyle} />
                 </TouchableWithoutFeedback>
                 <View style={style.secondHalf}>
                     {isExpand ?
@@ -57,7 +58,7 @@ export default function CustomAppBar() {
                         isSignIn ? <TouchableOpacity onPress={() => {
                             navigation.navigate('UserLogin')
                         }}>
-                            <Image source={UserImg} style={{ marginLeft: 10, height: 45, width: 45, borderRadius: 5 }} />
+                            <Image source={IMAGES.USERIMG} style={{ marginLeft: 10, height: 45, width: 45, borderRadius: 5 }} />
                         </TouchableOpacity> : <TouchableOpacity style={{ marginLeft: 10, flexDirection: 'row', borderRadius: 5, alignItems: 'center', backgroundColor: '#4db7fe', paddingHorizontal: 15, paddingVertical: 10 }}
                             onPress={() => {
                                 // navigation.navigate('UserLogin')

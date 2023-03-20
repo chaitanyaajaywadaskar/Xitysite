@@ -14,7 +14,7 @@ const GreyTextInput = (props) => {
 
             </View>
             <View style={{ flex: 0.8, paddingLeft: 10, justifyContent: 'center' }}>
-                <TextInput placeholder={props.hint} placeholderTextColor='grey' underlineColor='transparent' activeUnderlineColor='black' style={{ height: 40, backgroundColor: props.faintBg ? '#F8F8F8' : '#EFEFEF', }}></TextInput>
+                <TextInput placeholder={props.hint} value={props.value} onChangeText={props.onChangeText} placeholderTextColor='grey' underlineColor='transparent' activeUnderlineColor='black' style={{ height: 40, backgroundColor: props.faintBg ? '#F8F8F8' : '#EFEFEF', }}></TextInput>
             </View>
         </View>
     )

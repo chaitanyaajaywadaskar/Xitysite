@@ -3,25 +3,13 @@ import React from 'react'
 import ExpandIconButton from './ExpandIconButton'
 import { size } from './size'
 import Spacer from './spacer'
-import Fwrong from '../images/fwrong.png'
-import FGrid from '../images/fgrid.png'
-import FInternet from '../images/finternet.png'
-import FThree from '../images/fthree.png'
-import FUp from '../images/fuparrow.png'
-import FUser from '../images/fuser.png'
-import FFeedback from '../images/ffeedback.png'
-import Fchat from '../images/fchat.png'
-import Fmarket from '../images/fgrow.png'
-import FService from '../images/fservices.png'
-import Fside from '../images/fsidebar.png'
-import Fmenu from '../images/fmenu.png'
-import Fhome from '../images/fhome.png'
-import FSearch from '../images/search.png'
 import {
     responsiveHeight,
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
+import IMAGES from '../constants/ImagesContant';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('screen').height;
 const ExpandedView = (props) => {
@@ -38,41 +26,41 @@ const ExpandedView = (props) => {
             alignItems: 'center',
             justifyContent: 'center'
         }}>
-            <ExpandIconButton isThereText={false} Img={Fhome} onPress={props.onHomeClick} name='Home' isDark={true} />
+            <ExpandIconButton isThereText={false} Img={IMAGES.HOME} onPress={props.onHomeClick} name='Home' isDark={true} />
             <Spacer size={size.sm} />
             <View style={{ height: 1, width: '100%', alignSelf: 'center', backgroundColor: '#8BB7FF' }} />
             <ScrollView showsVerticalScrollIndicator={false} scrollEnabled={true}>
                 <Spacer size={size.mid} />
-                <ExpandIconButton isThereText={false} Img={Fmenu} onPress={props.onMenuClick} name='Main Menu ' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.MENU} onPress={props.onMenuClick} name='Main Menu ' />
                 <Spacer size={size.sm} />
-                <ExpandIconButton isThereText={false} Img={FService} onPress={props.onSeviceClick} name='Services' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.SERVICES} onPress={props.onSeviceClick} name='Services' />
                 <Spacer size={size.sm} />
-                <ExpandIconButton isThereText={false} Img={FUser} onPress={props.onMyAccClick} name='My Account' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.USERICON} onPress={props.onMyAccClick} name='My Account' />
                 <Spacer size={size.sm} />
-                <ExpandIconButton isThereText={false} Img={Fside} onPress={() => { }} name='Sidebar' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.SIDEBAR} onPress={() => { }} name='Sidebar' />
                 <Spacer size={size.sm} />
-                <ExpandIconButton isThereText={false} Img={Fchat} onPress={() => { }} name='Chat' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.CHAT} onPress={() => { }} name='Chat' />
 
                 <Spacer size={size.sm} />
-                <ExpandIconButton isThereText={false} Img={FSearch} onPress={() => { }} name='Search' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.SEARCH} onPress={() => { }} name='Search' />
                 <Spacer size={size.sm} />
-                <ExpandIconButton isThereText={false} Img={FUp} onPress={() => { }} name='Top Page' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.UPARROW} onPress={() => { }} name='Top Page' />
 
                 <Spacer size={size.sm} />
-                <ExpandIconButton isThereText={false} Img={FFeedback} onPress={() => { }} name='Feedback' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.FEEDBACK} onPress={() => { }} name='Feedback' />
                 <Spacer size={size.sm} />
-                <Image source={FThree} style={{ width: 20, height: 15, alignSelf: 'center' }} />
+                <Image source={IMAGES.THREEMENU} style={{ width: 20, height: 15, alignSelf: 'center' }} />
                 <Spacer size={size.sm} />
-                <ExpandIconButton isThereText={false} Img={Fmarket} onPress={props.onMarketsClick} name='Markets' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.GROW} onPress={props.onMarketsClick} name='Markets' />
                 <Spacer size={size.sm} />
-                <ExpandIconButton isThereText={false} Img={FInternet} onPress={() => { }} name='Online services' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.INTERNET} onPress={() => { }} name='Online services' />
                 <Spacer size={size.sm} />
-                <ExpandIconButton isThereText={false} Img={FGrid} onPress={() => { }} name='Third-party Apps' />
+                <ExpandIconButton isThereText={false} Img={IMAGES.GRID} onPress={() => { }} name='Third-party Apps' />
                 <Spacer size={size.mid} />
             </ScrollView>
             <View style={{ height: 1, width: '100%', alignSelf: 'center', backgroundColor: '#8BB7FF' }} />
             <Spacer size={size.sm} />
-            <ExpandIconButton isThereText={false} Img={Fwrong} onPress={props.onClose} name='Close' isDark={true} />
+            <ExpandIconButton isThereText={false} Img={IMAGES.WRONG} onPress={props.onClose} name='Close' isDark={true} />
 
         </View>
     )

@@ -1,29 +1,13 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import Wrong from '../images/fwrong.png'
-import Logo from '../images/logo.png'
-import User from '../images/fuser.png'
-import Feedback from '../images/ffeedback.png'
-import Service from '../images/fservices.png'
 import React, { useState, useEffect } from 'react'
-import Home from '../images/fhome.png'
-import Call from '../images/call.png'
-import Help from '../images/help.png'
-import Faq from '../images/que.png'
-import Tutorial from '../images/tutorial.png'
-import Forum from '../images/forum.png'
-import Legal from '../images/legal.png'
-import Info from '../images/info.png'
-import Company from '../images/company.png'
-import Project from '../images/project.png'
 import Icons from './Icons/IconsSet';
-import Price from '../images/price.png'
-import Grow from '../images/fgrow.png'
 import Spacer, { SpacerHorizontal } from './spacer'
 import { size } from './size'
 import { ScrollView } from 'react-native-gesture-handler'
 import DrawerNormalItem from './DrawerNormalItem'
 import DrawerTranspyContainer from './DrawerTranspyContainer'
 import GestureDrawerContext from './DrawerContext'
+import IMAGES from '../constants/ImagesContant';
 
 const CustomDrawer = ({ navigation }) => {
     const [isHelp, setHelp] = useState(false);
@@ -38,7 +22,7 @@ const CustomDrawer = ({ navigation }) => {
                 <TouchableOpacity onPress={() => {
                     navigation.navigate('Home')
                 }} style={styles.blueContainer}>
-                    <Image source={Home} style={styles.imgView} />
+                    <Image source={IMAGES.HOME} style={styles.imgView} />
                     <SpacerHorizontal size={size.mid} />
                     <Text style={styles.textStyle}>HOME</Text>
                 </TouchableOpacity>
@@ -53,36 +37,36 @@ const CustomDrawer = ({ navigation }) => {
                     }} img={User} name='My Account' />
 
                     <DrawerNormalItem img={Service} name='Services' /> */}
-                    <DrawerTranspyContainer isClick={isSupport} img={Help} onPress={() => {
+                    <DrawerTranspyContainer isClick={isSupport} img={IMAGES.HELP} onPress={() => {
                         setSupport(!isSupport)
                     }} name='Support' />
-                    {isSupport && <View><DrawerNormalItem img={Call} name='Contact Us' onPress={() => {
+                    {isSupport && <View><DrawerNormalItem img={IMAGES.CALL} name='Contact Us' onPress={() => {
                         navigation.navigate('Contact')
                     }} />
-                        <DrawerNormalItem img={Feedback} name='Feedback' onPress={() => {
+                        <DrawerNormalItem img={IMAGES.FEEDBACK} name='Feedback' onPress={() => {
                             navigation.navigate('FeedbackHome')
                         }} />
-                        <DrawerNormalItem img={Feedback} name='Customer Care' />
-                        <DrawerTranspyContainer isClick={isHelp} img={Help} onPress={() => {
+                        <DrawerNormalItem img={IMAGES.FEEDBACK} name='Customer Care' />
+                        <DrawerTranspyContainer isClick={isHelp} img={IMAGES.HELP} onPress={() => {
                             setHelp(!isHelp)
                         }} name='Help Center' />
                         {isHelp && <View style={{ paddingLeft: 20 }}>
                             <DrawerNormalItem onPress={() => {
                                 navigation.navigate('HelpCenter')
-                            }} img={Faq} name='FAQ' />
-                            <DrawerNormalItem img={Tutorial} name='Tutorials' />
-                            <DrawerNormalItem img={Forum} name='Forum' />
+                            }} img={IMAGES.QUE} name='FAQ' />
+                            <DrawerNormalItem img={IMAGES.TUT} name='Tutorials' />
+                            <DrawerNormalItem img={IMAGES.FORUM} name='Forum' />
                         </View>}</View>}
                     <DrawerNormalItem onPress={() => {
                         navigation.navigate('Legal')
-                    }} img={Legal} name='Legal' />
+                    }} img={IMAGES.LEGAL} name='Legal' />
                     {/* <Spacer size={size.mid} /> */}
-                    <DrawerTranspyContainer isClick={isAbout} img={Info} onPress={() => {
+                    <DrawerTranspyContainer isClick={isAbout} img={IMAGES.INFO} onPress={() => {
                         setAbout(!isAbout)
                     }} name='About' />
                     {isAbout && <View>
-                        <DrawerNormalItem img={Company} name='Ornda Agency' />
-                        <DrawerNormalItem img={Project} onPress={() => {
+                        <DrawerNormalItem img={IMAGES.COMPANY} name='Ornda Agency' />
+                        <DrawerNormalItem img={IMAGES.PROJECT} onPress={() => {
                             navigation.navigate('Part')
 
                         }} name='Xity Project' />
@@ -94,11 +78,11 @@ const CustomDrawer = ({ navigation }) => {
                     <DrawerNormalItem onPress={() => {
                         navigation.navigate('Pricing')
 
-                    }} img={Price} name='Pricing' />
+                    }} img={IMAGES.PRICE} name='Pricing' />
                     <Spacer size={size.lg} />
                 </ScrollView>
                 <View style={[styles.blueContainer, { justifyContent: 'space-between' }]}>
-                    <Image source={Logo} resizeMode='contain' style={styles.logo} />
+                    <Image source={IMAGES.LOGO} resizeMode='contain' style={styles.logo} />
                     <View style={{ backgroundColor: 'white', width: 1.5 }} />
                     <TouchableOpacity onPress={() => {
                         navigation.getParent('left_drawer').closeDrawer()

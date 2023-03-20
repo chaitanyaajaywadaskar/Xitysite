@@ -1,10 +1,9 @@
 import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity, Image, Pressable } from 'react-native'
 import React, { useState } from 'react'
-
+import IMAGES from '../constants/ImagesContant';
 import Spacer, { SpacerHorizontal } from './spacer'
 import { size } from './size'
-import Logo from '../images/logo.png'
-import RadioGroup, { RadioButton, RadioButtonProps } from 'react-native-radio-buttons-group';
+import RadioGroup, { RadioButton } from 'react-native-radio-buttons-group';
 import ImageTextInput from './ImageTextInput'
 import ExpandedView from './ExpandedView'
 import FloatButton from './FloatButton'
@@ -26,7 +25,7 @@ const SignUpScreen = ({ navigation }) => {
                 <View style={{ backgroundColor: '#EFF5FF' }}>
                     <ScrollView showsVerticalScrollIndicator={false}>
                         <View style={styles.styleCenter}>
-                            <Image source={Logo} style={styles.imageStylelogo} />
+                            <Image source={IMAGES.LOGO} style={styles.imageStylelogo} />
                             <Spacer size={size.xlg} />
                             {/* <Text style={styles.textStyle}>Create your account</Text>
                             <Spacer size={size.sh} />

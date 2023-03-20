@@ -1,16 +1,10 @@
 import { View, Text, StyleSheet, Dimensions, TextInput, Modal, ScrollView, TouchableOpacity, Image, Pressable } from 'react-native'
-import React, { useState } from 'react'
-import Bg from '../images/background.png'
-
+import React, { useState, } from 'react'
 import Spacer, { SpacerHorizontal } from './spacer'
 import { size } from './size'
-import ig from '../images/instagram.png'
-import fb from '../images/fb.png'
-import twit from '../images/twitter.png'
 import Icons from './Icons/IconsSet';
 import ImageTextInput from './ImageTextInput'
-
-import vk from '../images/vk.png'
+import ApiManager from './ApiManager'
 import FloatButton from './FloatButton'
 import ExpandedView from './ExpandedView'
 import BottomView from './BottomView'
@@ -20,15 +14,71 @@ import {
     responsiveFontSize
 } from "react-native-responsive-dimensions";
 import CustomAppBar from './CustomAppBar'
+import IMAGES from '../constants/ImagesContant';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const InvitedScreen = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [isExpand, setExpand] = useState(false);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [msg, setMsg] = useState('');
+
+    const sendMsgData = async () => {
+        // let res = await ApiManager({
+        //     url: 'directory/getinvite',
+        //     data: {
+        //         name: 'Kiran',
+        //         email: 'abc@gmail.com',
+        //         phoneno: 7730303030,
+        //         message: 'Hello From Get Invite'
+        //     },
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }
+        // )
+        // console.log(res.data.success)
+        ApiManager.post('directory/getinvite',
+            {
+                name: name,
+                email: email,
+                phoneno: phone,
+                message: msg
+            },
+        ).then(function (response) {
+            console.log('Here we go: ' + response.data.success);
+            if (response.status === 200) {
+                alert('message sent successfully')
+            }
+        }).catch(err => {
+            console.log('Uffs there is error' + err)
+        })
+
+    }
+    const validate = () => {
+        if (name === '') {
+            alert('please enter your name')
+        }
+        else if (email === '') {
+            alert('please enter email')
+        }
+        else if (phone.length <= 0) {
+            alert('please enter phone number')
+        }
+        else if (msg === '') {
+            alert('please leave a message')
+        }
+        else {
+            sendMsgData()
+        }
+    }
     return (
         <Pressable onPress={() => {
             setExpand(false)
-        }} style={{}}>
+        }} >
             <View>
                 <Modal
                     animationType="fade"
@@ -61,19 +111,28 @@ const InvitedScreen = ({ navigation }) => {
                             <View>
                                 <Spacer size={size.xlg} />
 
-                                <ImageTextInput isBlue={true} hint='Your Name*' isUser={true}></ImageTextInput>
+                                <ImageTextInput isBlue={true} hint='Your Name*' value={name} onChangeText={(val) => {
+                                    setName(val)
+                                }} isUser={true}></ImageTextInput>
                                 <Spacer size={size.sm} />
-                                <ImageTextInput isBlue={true} hint='Email Address*' isEmail={true}></ImageTextInput>
+                                <ImageTextInput isBlue={true} hint='Email Address*' value={email} onChangeText={(val) => {
+                                    setEmail(val)
+                                }} isEmail={true}></ImageTextInput>
                                 <Spacer size={size.sm} />
 
-                                <ImageTextInput isBlue={true} hint='Phone Number*' isCall={true}></ImageTextInput>
+                                <ImageTextInput isBlue={true} hint='Phone Number*' value={`${phone}`} keyboardType='numeric' onChangeText={(val) => {
+                                    setPhone(`${val}`)
+                                }} isCall={true}></ImageTextInput>
                                 <Spacer size={size.sm} />
 
                                 <TextInput
                                     placeholder='Your Message Here:'
                                     multiline={true}
-                                    // numberOfLines={4}
                                     placeholderTextColor='grey'
+                                    value={msg}
+                                    onChangeText={(val) => {
+                                        setMsg(val)
+                                    }}
                                     style={{
                                         backgroundColor: '#F5F7FB',
                                         width: '80%',
@@ -86,7 +145,7 @@ const InvitedScreen = ({ navigation }) => {
                                 />
                                 <Spacer size={size.mid} />
                                 <TouchableOpacity onPress={() => {
-                                    setModalVisible(true)
+                                    validate()
                                 }} style={{ width: '40%', padding: 10, borderRadius: 4, backgroundColor: '#4286F5', alignContent: 'center', justifyContent: 'flex-start', alignItems: 'flex-start', alignSelf: 'flex-start', marginLeft: 34 }}>
                                     <Text style={styles.buttonBlueText}>Send Message</Text>
                                 </TouchableOpacity>
@@ -95,7 +154,7 @@ const InvitedScreen = ({ navigation }) => {
                         </View></View>
                 </Modal>
 
-                <Image source={Bg} resizeMode='cover' style={styles.imgStyle} />
+                <Image source={IMAGES.PINCODEBG} resizeMode='cover' style={styles.imgStyle} />
                 <CustomAppBar />
                 <ScrollView>
 
@@ -164,7 +223,6 @@ const InvitedScreen = ({ navigation }) => {
                     </View>bleOpacity> */}
                         <Spacer size={size.xxlg} />
                         {/* Social Icon */}
-                        {/*  */}
                         <Spacer size={size.xlg} />
                         <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
                             <View >

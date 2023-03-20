@@ -1,26 +1,5 @@
 import { View, Text, StyleSheet, Dimensions, Modal, TextInput, ScrollView, TouchableOpacity, Image, FlatList, Animated, Pressable } from 'react-native'
 import React, { useState, useRef } from 'react'
-import LapHome from '../images/home_lap.png'
-import BannerBlue from '../images/banner.png'
-import blackBg from '../images/blackbg.png'
-import Gear from '../images/gear.png'
-import Batch from '../images/batch.png'
-import Technician from '../images/technician.png'
-import Left from '../images/left.png'
-import Check from '../images/check.png'
-import Banner3 from '../images/banner3.png'
-import Hexlab from '../images/hexlab.png'
-import Aven from '../images/aven.png'
-import Velocity9 from '../images/velocity9.png'
-import Ideaa from '../images/ideaa.png'
-import Treva from '../images/treva.png'
-import Hexa from '../images/hexa.png'
-import Poster from '../images/poster.png'
-import Location from '../images/locations.png'
-import Girl from '../images/girl.png'
-import Right from '../images/right.png'
-import banner2 from '../images/banner2.png'
-import person from '../images/person.png'
 import Spacer, { SpacerHorizontal } from './spacer';
 import { size } from './size';
 import RoundedBox from './roundedBox';
@@ -39,6 +18,8 @@ import BottomView from './BottomView'
 import Lottie from 'lottie-react-native'
 import Play from '../lottiefiles/play_video.json'
 import CustomAppBar from './CustomAppBar'
+import IMAGES from '../constants/ImagesContant';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const HomeDirectory = ({ navigation }) => {
@@ -71,7 +52,7 @@ const HomeDirectory = ({ navigation }) => {
 
                 <ScrollView>
                     <View style={{ height: windowHeight * 0.7, }}>
-                        <Image source={LapHome} resizeMode='stretch' style={styles.imageStylelogo} />
+                        <Image source={IMAGES.HOMELAP} resizeMode='stretch' style={styles.imageStylelogo} />
                         <View style={{ position: 'absolute', bottom: 0, left: 0, right: 0, top: 50 }}>
                             <Spacer size={size.xxxlg} />
                             <Text style={styles.shortTextStyle}>B*Found | Find*X</Text>
@@ -85,9 +66,9 @@ const HomeDirectory = ({ navigation }) => {
                             <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
                                 <RoundedBox onPress={() => {
                                     navigation.navigate('Listning')
-                                }} img={Gear} Title='Business' />
-                                <RoundedBox img={Batch} Title='Professionals' />
-                                <RoundedBox img={Technician} Title='Handymen' />
+                                }} img={IMAGES.GEAR} Title='Business' />
+                                <RoundedBox img={IMAGES.BATCH} Title='Professionals' />
+                                <RoundedBox img={IMAGES.TECHNICIAN} Title='Handymen' />
                             </View>
                         </View>
                     </View>
@@ -122,12 +103,12 @@ const HomeDirectory = ({ navigation }) => {
                             <TouchableOpacity onPress={() => {
                                 resRef.current.scrollToIndex({ animated: true, index: parseInt(resCurrentIndex) > 0 && parseInt(resCurrentIndex) - 1 })
                             }} style={{ width: 40, height: 30, borderRadius: 5, position: 'absolute', top: '40%', left: 15 }}>
-                                <Image source={Left} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5 }} />
+                                <Image source={IMAGES.LEFT} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5 }} />
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {
                                 resRef.current.scrollToIndex({ animated: true, index: parseInt(resCurrentIndex) < (resData.length - 1) && parseInt(resCurrentIndex) + 1 })
                             }} style={{ width: 40, height: 30, borderRadius: 5, position: 'absolute', top: '40%', right: 15 }}>
-                                <Image source={Right} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5, }} />
+                                <Image source={IMAGES.RIGHT} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5, }} />
                             </TouchableOpacity>
 
                         </View>
@@ -188,7 +169,7 @@ const HomeDirectory = ({ navigation }) => {
                     <Spacer size={size.xxxlg} />
 
                     <View style={{ width: windowWidth, height: 250 }}>
-                        <Image source={blackBg} resizeMode='cover' style={{ bottom: 0, position: 'absolute', width: windowWidth, height: 250 }} />
+                        <Image source={IMAGES.BLACKBANNER} resizeMode='cover' style={{ bottom: 0, position: 'absolute', width: windowWidth, height: 250 }} />
 
                         <View style={{ paddingVertical: 10, alignItems: 'center', }}>
                             <Lottie source={Play} resizeMode='cover' autoPlay={true} loop={true} style={{
@@ -223,7 +204,7 @@ const HomeDirectory = ({ navigation }) => {
                         </View>
                     </View>
                     <View style={{ width: windowWidth, marginTop: 30, height: 200, justifyContent: 'space-evenly', alignItems: "flex-end" }}>
-                        <Image source={banner2} style={[styles.bannerimageStyle, { width: windowWidth * 0.95, height: 220 }]} />
+                        <Image source={IMAGES.BANNER2} style={[styles.bannerimageStyle, { width: windowWidth * 0.95, height: 220 }]} />
                         <View style={{ marginRight: 25, width: '70%', alignItems: 'flex-end' }}>
                             <Spacer size={size.xxxlg} />
                             <Text style={{ fontSize: 22, color: 'white', fontWeight: '800' }}>Best Cafes & Bars</Text>
@@ -256,7 +237,7 @@ const HomeDirectory = ({ navigation }) => {
                         onSnapToItem={(index) => setCurrentIndex(index)}
                         renderItem={({ index }) => (
                             <View>
-                                <Image source={person} style={{ width: windowWidth, borderRadius: 10, alignSelf: "center", height: 220 }} />
+                                <Image source={IMAGES.PERSON} style={{ width: windowWidth, borderRadius: 10, alignSelf: "center", height: 220 }} />
                                 <Spacer size={size.sm} />
 
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignSelf: "center", width: windowWidth }}>
@@ -264,7 +245,8 @@ const HomeDirectory = ({ navigation }) => {
                                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
 
                                             <Text style={{ fontSize: 18, fontWeight: '600', color: 'black' }}>Ohan Yew</Text>
-                                            <Image source={Check} resizeMode='contain' style={{ width: 18, height: 18, }} />
+                                            <Icons.AntDesign name='checkcircle' size={20} color='#0EBC31' />
+
                                             <SpacerHorizontal size={size.sh} />
                                         </View>
                                         <Spacer size={size.sh} />
@@ -293,7 +275,7 @@ const HomeDirectory = ({ navigation }) => {
                         )}
                     />
                     <View style={{ width: windowWidth, marginTop: 30, height: 220, justifyContent: 'space-evenly', alignItems: "flex-start" }}>
-                        <Image source={banner2} style={[styles.bannerimageStyle, { width: windowWidth * 0.95, height: 220 }]} />
+                        <Image source={IMAGES.BANNER2} style={[styles.bannerimageStyle, { width: windowWidth * 0.95, height: 220 }]} />
                         <View style={{ marginLeft: 25, width: '70%', alignItems: 'flex-start' }}>
                             <Spacer size={size.xxxlg} />
                             <Text style={{ fontSize: 22, color: 'white', fontWeight: '800' }}>Best Cafes & Bars</Text>
@@ -398,7 +380,7 @@ const HomeDirectory = ({ navigation }) => {
                                 renderItem={(item, index) =>
                                     <View key={item.id} style={{ width: windowWidth * 0.7, marginLeft: 0, alignSelf: 'center' }}>
                                         <View>
-                                            <Image source={person} style={{ width: windowWidth * 0.7, borderRadius: 10, alignSelf: "center", height: 160 }} />
+                                            <Image source={IMAGES.PERSON} style={{ width: windowWidth * 0.7, borderRadius: 10, alignSelf: "center", height: 160 }} />
                                             <Spacer size={size.sm} />
 
                                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignSelf: "center", width: windowWidth * 0.7 }}>
@@ -406,12 +388,12 @@ const HomeDirectory = ({ navigation }) => {
                                                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
 
                                                         <Text style={{ fontSize: 15, fontWeight: '600', color: 'black' }}>Ohan Yew</Text>
-                                                        <Image source={Check} resizeMode='contain' style={{ width: 18, height: 18, }} />
+                                                        <Icons.AntDesign name='checkcircle' size={20} color='#0EBC31' />
                                                         <SpacerHorizontal size={size.sh} />
                                                     </View>
                                                     <Spacer size={size.sh} />
                                                     <View style={{ flexDirection: 'row' }}>
-                                                        <Image source={Location} resizeMode='contain' style={{ width: 12, height: 12, }} />
+                                                        <Icons.Ionicons name='location-sharp' size={20} color='#4286F5' />
                                                         <SpacerHorizontal size={size.sh} />
                                                         <Text style={{ fontSize: 10, }}>27th Brooklyn New York, USA</Text>
 
@@ -440,11 +422,11 @@ const HomeDirectory = ({ navigation }) => {
                                 } />
                             <TouchableOpacity onPress={() => {
                             }} style={{ width: 40, height: 30, borderRadius: 5, position: 'absolute', top: '30%', left: 15 }}>
-                                <Image source={Left} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5 }} />
+                                <Image source={IMAGES.LEFT} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5 }} />
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {
                             }} style={{ width: 40, height: 30, borderRadius: 5, position: 'absolute', top: '30%', right: 15 }}>
-                                <Image source={Right} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5, }} />
+                                <Image source={IMAGES.RIGHT} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5, }} />
                             </TouchableOpacity>
 
                         </View>
@@ -458,9 +440,9 @@ const HomeDirectory = ({ navigation }) => {
                     </View>
                     <Spacer size={size.lg} />
                     <ScrollView horizontal>
-                        <Image source={Banner3} resizeMode='contain' style={{ width: windowWidth, height: 180, }} />
-                        <Image source={Banner3} resizeMode='contain' style={{ width: windowWidth, height: 180, }} />
-                        <Image source={Banner3} resizeMode='contain' style={{ width: windowWidth, height: 180, }} />
+                        <Image source={IMAGES.BANNERBLUEBTN} resizeMode='contain' style={{ width: windowWidth, height: 180, }} />
+                        <Image source={IMAGES.BANNERBLUEBTN} resizeMode='contain' style={{ width: windowWidth, height: 180, }} />
+                        <Image source={IMAGES.BANNERBLUEBTN} resizeMode='contain' style={{ width: windowWidth, height: 180, }} />
                     </ScrollView>
                     <View style={{ height: 62 }}>
                         <View style={{ alignItems: 'center', opacity: 0.2, marginTop: 30 }}>
@@ -483,7 +465,7 @@ const HomeDirectory = ({ navigation }) => {
                                 setResCurrentIndex2((x1 / (windowWidth)).toFixed(0))
                             }}
                             pagingEnabled
-                            renderItem={(item, index) => <TravelCardView Img={Poster} />} />
+                            renderItem={(item, index) => <TravelCardView Img={IMAGES.POSTER} />} />
 
 
 
@@ -536,18 +518,18 @@ const HomeDirectory = ({ navigation }) => {
                                     setResCurrentIndex3((x / windowWidth).toFixed(0))
                                 }}
                                 renderItem={(item, index) =>
-                                    <View key={item.id} style={{ width: windowWidth }}><TestomonialCard User={Girl} key={item.id} /></View>
+                                    <View key={item.id} style={{ width: windowWidth }}><TestomonialCard User={IMAGES.GIRLAVATAR} key={item.id} /></View>
 
                                 } />
                             <TouchableOpacity onPress={() => {
                                 resRef1.current.scrollToIndex({ animated: true, index: parseInt(resCurrentIndex3) > 0 && parseInt(resCurrentIndex3) - 1 })
                             }} style={{ width: 40, height: 30, borderRadius: 5, position: 'absolute', top: '55%', left: 15 }}>
-                                <Image source={Left} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5 }} />
+                                <Image source={IMAGES.LEFT} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5 }} />
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {
                                 resRef1.current.scrollToIndex({ animated: true, index: parseInt(resCurrentIndex3) < (testomonialData.length - 1) && parseInt(resCurrentIndex3) + 1 })
                             }} style={{ width: 40, height: 30, borderRadius: 5, position: 'absolute', top: '55%', right: 15 }}>
-                                <Image source={Right} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5, }} />
+                                <Image source={IMAGES.RIGHT} resizeMode='cover' style={{ width: 40, height: 30, borderRadius: 5, }} />
                             </TouchableOpacity>
 
                         </View>
@@ -557,12 +539,12 @@ const HomeDirectory = ({ navigation }) => {
                     <Spacer size={size.xxxlg} />
                     <View style={{ width: windowWidth * 0.98, alignSelf: 'center', backgroundColor: '#D5D5D5', height: 1 }} />
                     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                        <Image source={Hexlab} style={{ width: 150, height: 150 }} />
-                        <Image source={Aven} style={{ width: 150, height: 150 }} />
-                        <Image source={Velocity9} style={{ width: 150, height: 150 }} />
-                        <Image source={Ideaa} style={{ width: 150, height: 150 }} />
-                        <Image source={Treva} style={{ width: 150, height: 150 }} />
-                        <Image source={Hexa} style={{ width: 150, height: 150 }} />
+                        <Image source={IMAGES.HEXLAB} style={{ width: 150, height: 150 }} />
+                        <Image source={IMAGES.AVEN} style={{ width: 150, height: 150 }} />
+                        <Image source={IMAGES.VELOCITY} style={{ width: 150, height: 150 }} />
+                        <Image source={IMAGES.IDEAA} style={{ width: 150, height: 150 }} />
+                        <Image source={IMAGES.TREVA} style={{ width: 150, height: 150 }} />
+                        <Image source={IMAGES.HEXA} style={{ width: 150, height: 150 }} />
                     </ScrollView>
                     <Spacer size={size.lg} />
                     <BottomView />

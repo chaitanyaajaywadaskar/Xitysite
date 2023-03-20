@@ -2,10 +2,6 @@ import { View, Text, ScrollView, StyleSheet, Dimensions, Image, TouchableOpacity
 import React, { useState } from 'react'
 import Spacer from './spacer'
 import { size } from './size'
-import LapTop from '../images/laptop.png'
-import BlueLayer from '../images/bluelayer.png'
-import GreenLayer from '../images/greenlayer.png'
-import PurpleLayer from '../images/purplelayer.png'
 import {
     responsiveHeight,
     responsiveWidth,
@@ -17,6 +13,8 @@ import BottomView from './BottomView'
 import ExpandedView from './ExpandedView'
 import FloatButton from './FloatButton'
 import CustomAppBar from './CustomAppBar'
+import IMAGES from '../constants/ImagesContant'
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const Pricing = ({ navigation }) => {
@@ -29,7 +27,7 @@ const Pricing = ({ navigation }) => {
             <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: 60 }}>
                 <View style={{ backgroundColor: 'white' }}>
                     <View style={styles.overlayContainer}>
-                        <Image source={LapTop} resizeMode='cover' style={styles.contactImg} />
+                        <Image source={IMAGES.LAPTOP} resizeMode='cover' style={styles.contactImg} />
                         <Text style={styles.largeText}>Our Tariff Plans</Text>
                         <Spacer size={size.mid} />
                         <Text style={styles.breadCrumText}>Home  &gt;  Pages  &gt;  Pricing Tables</Text>
@@ -57,11 +55,11 @@ const Pricing = ({ navigation }) => {
                         </TouchableOpacity>
                     </View>
                     <Spacer size={size.xxxlg} />
-                    <TrafficPlanCard overlayImage={BlueLayer} overlayImageHeight={responsiveHeight(32)} btnText='Extended' fontSize={responsiveFontSize(1.7)} overlayBtnBg='#8BB7FF' blueBtnText='Choose Extended' isRecommended={true} />
+                    <TrafficPlanCard overlayImage={IMAGES.BLUELAYER} overlayImageHeight={responsiveHeight(32)} btnText='Extended' fontSize={responsiveFontSize(1.7)} overlayBtnBg='#8BB7FF' blueBtnText='Choose Extended' isRecommended={true} />
                     <Spacer size={size.lg} />
-                    <TrafficPlanCard overlayImage={GreenLayer} overlayImageHeight={responsiveHeight(40)} btnText='Professional' fontSize={responsiveFontSize(1.8)} overlayBtnBg='#5ECFB1' blueBtnText='Choose Professional' isRecommended={false} />
+                    <TrafficPlanCard overlayImage={IMAGES.GREENLAYER} overlayImageHeight={responsiveHeight(40)} btnText='Professional' fontSize={responsiveFontSize(1.8)} overlayBtnBg='#5ECFB1' blueBtnText='Choose Professional' isRecommended={false} />
                     <Spacer size={size.lg} />
-                    <TrafficPlanCard overlayImage={PurpleLayer} overlayImageHeight={responsiveHeight(40)} btnText='Professional' fontSize={responsiveFontSize(1.8)} overlayBtnBg='#C371F2' blueBtnText='Choose Professional' isRecommended={false} />
+                    <TrafficPlanCard overlayImage={IMAGES.PURPLELAYER} overlayImageHeight={responsiveHeight(40)} btnText='Professional' fontSize={responsiveFontSize(1.8)} overlayBtnBg='#C371F2' blueBtnText='Choose Professional' isRecommended={false} />
                     <Spacer size={size.xxxlg} />
 
                     <SupportView mainTitle='24 Hours Support' />

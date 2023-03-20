@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, Dimensions, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import Icons from './Icons/IconsSet';
-import mainImage from '../images/mainImage.png'
 import BottomButtons from './BottomButtons';
 import CustomAppBar from './CustomAppBar';
 import BottomView from './BottomView';
@@ -17,6 +16,8 @@ import {
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
+import IMAGES from '../constants/ImagesContant'
+
 const FeedbackSecondScreen = ({ navigation }) => {
     const [textInputCompanyName, settextInputCompanyName] = useState('');
     const [isExpand, setExpand] = useState(false);
@@ -34,7 +35,7 @@ const FeedbackSecondScreen = ({ navigation }) => {
             <CustomAppBar />
             <ScrollView  >
                 <View style={{ height: height * 0.9 }}>
-                    <Image source={mainImage} style={{ position: 'absolute', height: height, width: width }} />
+                    <Image source={IMAGES.MAINIMAGE} style={{ position: 'absolute', height: height, width: width }} />
                     <View style={{ padding: 25, marginTop: height * 0.20, }}>
                         <View style={{ flexDirection: 'row', marginBottom: 15 }}>
                             <Text style={{

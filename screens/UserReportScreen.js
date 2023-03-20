@@ -7,6 +7,7 @@ import ImageTextInput from './ImageTextInput'
 import ExpandedView from './ExpandedView'
 import FloatButton from './FloatButton'
 import CustomAppBar from './CustomAppBar'
+import IMAGES from '../constants/ImagesContant';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -19,7 +20,7 @@ const UserReportLogScreen = ({ navigation }) => {
             <CustomAppBar />
             <ScrollView showsVerticalScrollIndicator={false} style={{ backgroundColor: '#EFF5FF' }}>
                 <View style={styles.styleCenter}>
-                    <Image source={Logo} style={styles.imageStylelogo} />
+                    <Image source={IMAGES.LOGO} style={styles.imageStylelogo} />
                     <Spacer size={size.xxxlg} />
                     <Spacer size={size.xlg} />
                     {/* <Text style={styles.textStyle}>Report Log In Issues</Text> */}

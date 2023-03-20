@@ -1,89 +1,72 @@
 import { StyleSheet, Text, View, ScrollView, Image, Dimensions, TouchableOpacity } from 'react-native'
 import React from 'react'
-import UserImg from '../images/user.png'
-import Directory from '../images/files.png'
-import Market from '../images/market.png'
-import Community from '../images/community.png'
-import Blog from '../images/blog.png'
 import Icons from './Icons/IconsSet'
-import Coupons from '../images/coupons.png'
-import Job from '../images/job.png'
-import Events from '../images/events.png'
-import Webinar from '../images/webinar.png'
-import Forum from '../images/forum.png'
-import RFQ from '../images/rfq.png'
-import Contribute from '../images/contribute.png'
-import Delivery from '../images/delivery.png'
-import Marketing from '../images/marketing.png'
-import CS from '../images/support.png'
-import Govt from '../images/govt.png'
-import Xclub from '../images/xclub.png'
-import Logo from '../images/logo.png'
 import Spacer from './spacer';
 import { size } from './size';
 import ExpandIconButton from './ExpandIconButton';
+import IMAGES from '../constants/ImagesContant'
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const CustomDrawer3 = ({ navigation }) => {
     return (
         <View style={{ flex: 1, backgroundColor: '#4286F5', }}>
             <View style={{ paddingVertical: 15, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0C3982' }}>
-                <Image source={UserImg} resizeMode='cover' style={{ width: 120, height: 120, borderRadius: 5 }} />
+                <Image source={IMAGES.USERIMG} resizeMode='cover' style={{ width: 120, height: 120, borderRadius: 5 }} />
                 <Spacer size={size.sh} />
                 <Text style={{ color: 'white', fontWeight: '700', fontSize: 18 }}>Username</Text>
             </View>
             <ScrollView style={{ flex: 1, backgroundColor: '#4286F5', paddingHorizontal: 15, paddingVertical: 20 }}>
                 <Text style={{ color: 'white', fontWeight: '700', textDecorationLine: 'underline' }}>MAIN</Text>
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Directory} onPress={() => {
+                <ExpandIconButton Img={IMAGES.FILES} onPress={() => {
                     navigation.navigate('HomeDirectory')
                 }} name='Directory' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Market} onPress={() => { }} name='Marketplace' isBig={true} />
+                <ExpandIconButton Img={IMAGES.MARKET} onPress={() => { }} name='Marketplace' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Community} onPress={() => { }} name='Community' isBig={true} />
+                <ExpandIconButton Img={IMAGES.COMMUNITY} onPress={() => { }} name='Community' isBig={true} />
                 <Spacer size={size.mid} />
                 <Text style={{ color: 'white', fontWeight: '700', textDecorationLine: 'underline' }}>AUXILLARY</Text>
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Blog} onPress={() => { }} name='Blog' isBig={true} />
+                <ExpandIconButton Img={IMAGES.BLOG} onPress={() => { }} name='Blog' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Coupons} onPress={() => { }} name='Deals & Coupons' isBig={true} />
+                <ExpandIconButton Img={IMAGES.COUPON} onPress={() => { }} name='Deals & Coupons' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Job} onPress={() => { }} name='Jobs' isBig={true} />
+                <ExpandIconButton Img={IMAGES.JOB} onPress={() => { }} name='Jobs' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Events} onPress={() => { }} name='Events' isBig={true} />
+                <ExpandIconButton Img={IMAGES.EVENT} onPress={() => { }} name='Events' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Webinar} onPress={() => { }} name='Webinar' isBig={true} />
+                <ExpandIconButton Img={IMAGES.WEBINAR} onPress={() => { }} name='Webinar' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Forum} onPress={() => { }} name='Forum' isBig={true} />
+                <ExpandIconButton Img={IMAGES.FORUM} onPress={() => { }} name='Forum' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Forum} onPress={() => { }} name='E-Learning' isBig={true} />
+                <ExpandIconButton Img={IMAGES.FORUM} onPress={() => { }} name='E-Learning' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={RFQ} onPress={() => { }} name='RFQ' isBig={true} />
+                <ExpandIconButton Img={IMAGES.RFQ} onPress={() => { }} name='RFQ' isBig={true} />
                 <Spacer size={size.mid} />
 
-                <ExpandIconButton Img={Contribute} onPress={() => { }} name='Contribute' isBig={true} />
+                <ExpandIconButton Img={IMAGES.CONTRIBUTE} onPress={() => { }} name='Contribute' isBig={true} />
 
                 <Spacer size={size.mid} />
                 <Text style={{ color: 'white', fontWeight: '700', textDecorationLine: 'underline' }}>HUMAN RESOURCES</Text>
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Delivery} onPress={() => { }} name='Delivery' isBig={true} />
+                <ExpandIconButton Img={IMAGES.DELIVERY} onPress={() => { }} name='Delivery' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Marketing} onPress={() => { }} name='Marketing' isBig={true} />
+                <ExpandIconButton Img={IMAGES.MARKETING} onPress={() => { }} name='Marketing' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={CS} onPress={() => { }} name='Customer Care' isBig={true} />
+                <ExpandIconButton Img={IMAGES.SUPPORT} onPress={() => { }} name='Customer Care' isBig={true} />
                 <Spacer size={size.mid} />
                 <Text style={{ color: 'white', fontWeight: '700', textDecorationLine: 'underline' }}>OTHERS</Text>
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Govt} onPress={() => { }} name='Government' isBig={true} />
+                <ExpandIconButton Img={IMAGES.GOVT} onPress={() => { }} name='Government' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Xclub} onPress={() => { }} name='X-Club' isBig={true} />
+                <ExpandIconButton Img={IMAGES.XCLUB} onPress={() => { }} name='X-Club' isBig={true} />
                 <Spacer size={size.mid} />
                 <Text style={{ color: 'white', fontWeight: '700', textDecorationLine: 'underline' }}>PUBLICATION</Text>
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Govt} onPress={() => { }} name='City Magazines' isBig={true} />
+                <ExpandIconButton Img={IMAGES.GOVT} onPress={() => { }} name='City Magazines' isBig={true} />
                 <Spacer size={size.mid} />
-                <ExpandIconButton Img={Xclub} onPress={() => { }} name='Local NewsLetters' isBig={true} />
+                <ExpandIconButton Img={IMAGES.XCLUB} onPress={() => { }} name='Local NewsLetters' isBig={true} />
 
                 <Spacer size={size.xxxlg} />
             </ScrollView>
@@ -93,7 +76,7 @@ const CustomDrawer3 = ({ navigation }) => {
                 backgroundColor: '#0C3982',
                 flexDirection: 'row',
             }}>
-                <Image source={Logo} resizeMode='contain' style={{
+                <Image source={IMAGES.LOGO} resizeMode='contain' style={{
                     width: 60,
                     height: 35
                 }} />

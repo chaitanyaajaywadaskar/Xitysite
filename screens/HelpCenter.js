@@ -1,11 +1,6 @@
 import { View, Text, Image, StyleSheet, Dimensions, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import Icons from './Icons/IconsSet';
-import img from '../images/banner4.png'
-import townhub from '../images/townhub.png'
-import discount from '../images/discount.png'
-import listing from '../images/listing.png'
-import salesquestions from '../images/salesquestions.png'
 import BreadCrum from './BreadCrum'
 import BlockLayer from './BlockLayer'
 import ChannelButton from './ChannelButton'
@@ -25,6 +20,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import CustomAppBar from './CustomAppBar';
 import FloatButton from './FloatButton';
 import ExpandedView from './ExpandedView';
+import IMAGES from '../constants/ImagesContant';
+
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const HelpCenter = () => {
@@ -39,7 +36,7 @@ const HelpCenter = () => {
                 <View>
 
                     <View style={{ width: '100%', height: 250, marginTop: 60, alignItems: 'center', justifyContent: 'center' }}>
-                        <Image source={img} resizeMode='cover' style={{ width: '100%', height: 250, position: 'absolute', marginTop: 20 }} />
+                        <Image source={IMAGES.BANNER4} resizeMode='cover' style={{ width: '100%', height: 250, position: 'absolute', marginTop: 20 }} />
                         <Text style={{ textAlign: 'center', fontWeight: '600', fontSize: 27, color: 'white', paddingBottom: 6 }}>Help Center
                         </Text>
                         <View style={{ flexDirection: 'row' }}>
@@ -67,7 +64,7 @@ const HelpCenter = () => {
                                 size={70} color='#4286F5' style={{ alignSelf: 'center' }} />} />
                         <BlockLayer Title='Contact a Few Owners' subtext='02' Icon={<Icons.MaterialIcons name={'email'}
                             size={60} color='#4286F5' style={{ alignSelf: 'center' }} />} />
-                        <BlockLayer Title='Make a Listing' subtext='03' Image={<Image source={listing} style={{ height: 50, width: 50, alignSelf: 'center', marginTop: 10 }} />} />
+                        <BlockLayer Title='Make a Listing' subtext='03' Image={<Image source={IMAGES.LISTING} style={{ height: 50, width: 50, alignSelf: 'center', marginTop: 10 }} />} />
 
                         <View style={{ marginBottom: 30, backgroundColor: '#5ECFB1', borderColor: 'rgba(187,187,187,0.4)', borderWidth: 9, borderRadius: 29, height: 60, width: 60, alignSelf: 'center', justifyContent: 'center' }}>
                             <Icons.AntDesign name={'check'} size={23} color='white' style={{ alignSelf: 'center' }} />
@@ -83,7 +80,7 @@ const HelpCenter = () => {
                         <ChannelButton subtitle='Youtube channel' Icon={<Icons.Entypo name={'youtube'} size={15} color='white' />} />
 
                         <View style={{ height: 230, width: '100%', marginTop: 25, marginBottom: 20 }}>
-                            <Image source={townhub} resizeMode='cover' style={{ borderRadius: 15, height: 230, width: '100%', position: 'absolute' }} />
+                            <Image source={IMAGES.TOWNHUB} resizeMode='cover' style={{ borderRadius: 15, height: 230, width: '100%', position: 'absolute' }} />
                             <View style={{ marginBottom: 15, marginTop: 150 }}>
                                 <TouchableOpacity style={styles.townhubButton}>
                                     <View style={{ backgroundColor: '#4286F5', borderRadius: 25, height: 38, width: 38, justifyContent: 'center', alignItems: 'center', }}>
@@ -129,9 +126,9 @@ const HelpCenter = () => {
                         </View>
                     </View>
 
-                    <Guidesblock Title='Pricing Plans' bc='rgba(207,207,207,1)' Image={<Image source={discount} style={{ height: 40, width: 40 }} />} />
-                    <Guidesblock Title='Sales Questions' bc='rgba(207,207,207,1)' Image={<Image source={salesquestions} style={{ height: 40, width: 40 }} />} />
-                    <Guidesblock Title='Usage Guides' bc='rgba(207,207,207,1)' Image={<Image source={salesquestions} style={{ height: 40, width: 40 }} />} />
+                    <Guidesblock Title='Pricing Plans' bc='rgba(207,207,207,1)' Image={<Image source={IMAGES.TOWNHUB} style={{ height: 40, width: 40 }} />} />
+                    <Guidesblock Title='Sales Questions' bc='rgba(207,207,207,1)' Image={<Image source={IMAGES.SALESQUES} style={{ height: 40, width: 40 }} />} />
+                    <Guidesblock Title='Usage Guides' bc='rgba(207,207,207,1)' Image={<Image source={IMAGES.SALESQUES} style={{ height: 40, width: 40 }} />} />
 
                     <View style={{ padding: 17 }}>
                         <Text style={{ fontSize: 19, color: '#3B3B3B', fontWeight: '500' }}>Getting Started</Text>

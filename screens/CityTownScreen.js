@@ -1,20 +1,6 @@
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Dimensions, Image, Pressable, TextInput } from 'react-native'
 import React, { useState } from 'react'
-import maskgroup from '../images/maskgroup.png'
-import checkmark from '../images/check.png'
-import back from '../images/arrow_right.png'
-import restorent from '../images/mg1.png'
 import Icons from './Icons/IconsSet';
-import component1 from '../images/component1.png'
-import component2 from '../images/component2.png'
-import component3 from '../images/component3.png'
-import component5 from '../images/component5.png'
-import component6 from '../images/component6.png'
-import component7 from '../images/component7.png'
-import component8 from '../images/component8.png'
-import Directory from '../images/directorybanner.png'
-import Market from '../images/marketplaceimg.png'
-import Speaker from '../images/speaker.png'
 import Spacer, { SpacerHorizontal } from './spacer'
 import { size } from './size'
 import ExpandedView from './ExpandedView'
@@ -26,6 +12,8 @@ import {
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
+import IMAGES from '../constants/ImagesContant';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const CityTownScreen = () => {
@@ -60,7 +48,7 @@ const CityTownScreen = () => {
             <ScrollView>
                 {/* firstimage */}
                 <View style={{ width: '100%', height: 300, }}>
-                    <Image source={maskgroup} resizeMode='cover' style={{ width: '100%', height: 300, position: "absolute" }} />
+                    <Image source={IMAGES.MASKGRP} resizeMode='cover' style={{ width: '100%', height: 300, position: "absolute" }} />
                     {isLocationView && <View style={{ paddingTop: 10, width: windowWidth * 0.7, alignSelf: 'center' }}>
                         <View style={styles.triangle} />
                         <View style={{ alignSelf: 'center', backgroundColor: 'white', width: windowWidth * 0.7, padding: 15, borderRadius: 5 }}>
@@ -83,7 +71,8 @@ const CityTownScreen = () => {
                         <Text style={{ fontSize: 22, fontWeight: 'bold', color: 'white', marginRight: 15 }}>
                             Business Name
                         </Text>
-                        <Image source={checkmark} style={{ height: 20, width: 20, }} />
+                        <Icons.AntDesign name='checkcircle' size={20} color='#0EBC31' />
+
                     </View>
 
                     {/* maringbottom given to provide space between text and detail button */}
@@ -98,7 +87,7 @@ const CityTownScreen = () => {
                         <Text styles={{ fontSize: 21, color: 'white' }}>
                             Details
                         </Text>
-                        <Image source={back} style={{ height: 10, width: 18, marginLeft: 15 }} />
+                        <Image source={IMAGES.BACK} style={{ height: 10, width: 18, marginLeft: 15 }} />
                     </TouchableOpacity>
 
 
@@ -111,7 +100,7 @@ const CityTownScreen = () => {
                     <Spacer size={size.mid} />
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                         <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 10, borderRadius: 5, paddingHorizontal: 20, backgroundColor: '#012C72' }}>
-                            <Image source={Speaker} style={{ height: 18, width: 18, }} />
+                            <Image source={IMAGES.SPEAKER} style={{ height: 18, width: 18, }} />
                             <SpacerHorizontal size={size.sm} />
                             <Text style={{ color: 'white', fontSize: responsiveFontSize(2) }}>HIGHLIGHTS</Text>
                         </TouchableOpacity>
@@ -133,22 +122,22 @@ const CityTownScreen = () => {
                     <View style={{ backgroundColor: '#012C72', padding: 20 }}>
                         <ScrollView horizontal>
                             <View>
-                                <Image source={restorent} resizeMode='cover' style={{ height: 180, width: 300, marginLeft: 15 }} />
+                                <Image source={IMAGES.MG1} resizeMode='cover' style={{ height: 180, width: 300, marginLeft: 15 }} />
                                 <Spacer size={size.mid} />
                                 <Text style={{ color: 'white', alignSelf: 'center' }}>Lorem ipsum dolor sit amet</Text>
                             </View>
                             <View>
-                                <Image source={restorent} resizeMode='cover' style={{ height: 180, width: 300, marginLeft: 15 }} />
+                                <Image source={IMAGES.MG1} resizeMode='cover' style={{ height: 180, width: 300, marginLeft: 15 }} />
                                 <Spacer size={size.mid} />
                                 <Text style={{ color: 'white', alignSelf: 'center' }}>Lorem ipsum dolor sit amet</Text>
                             </View>
                             <View>
-                                <Image source={restorent} resizeMode='cover' style={{ height: 180, width: 300, marginLeft: 15 }} />
+                                <Image source={IMAGES.MG1} resizeMode='cover' style={{ height: 180, width: 300, marginLeft: 15 }} />
                                 <Spacer size={size.mid} />
                                 <Text style={{ color: 'white', alignSelf: 'center' }}>Lorem ipsum dolor sit amet</Text>
                             </View>
                             <View>
-                                <Image source={restorent} resizeMode='cover' style={{ height: 180, width: 300, marginLeft: 15 }} />
+                                <Image source={IMAGES.MG1} resizeMode='cover' style={{ height: 180, width: 300, marginLeft: 15 }} />
                                 <Spacer size={size.mid} />
                                 <Text style={{ color: 'white', alignSelf: 'center' }}>Lorem ipsum dolor sit amet</Text>
                             </View>
@@ -179,7 +168,7 @@ const CityTownScreen = () => {
                     </Text>
                     <Spacer size={size.mid} />
                     <View style={{ height: responsiveHeight(40), alignItems: "center", paddingBottom: 20, justifyContent: 'flex-end', width: '100%', }}>
-                        <Image source={Directory} resizeMode='cover' style={{ position: 'absolute', height: responsiveHeight(40), width: '90%', borderRadius: 5, alignSelf: 'center', }} />
+                        <Image source={IMAGES.DIRECTORYBANNER} resizeMode='cover' style={{ position: 'absolute', height: responsiveHeight(40), width: '90%', borderRadius: 5, alignSelf: 'center', }} />
                         <Text style={{ color: 'white', fontWeight: '700', fontSize: responsiveFontSize(2.5) }}>Directory</Text>
                         <Text style={{ color: 'white', fontWeight: '700', fontSize: responsiveFontSize(1.8) }}>0 Listings</Text>
                         <View style={{ flexDirection: 'row' }}>
@@ -206,7 +195,7 @@ const CityTownScreen = () => {
 
 
                     <View style={{ height: responsiveHeight(35), alignItems: "center", paddingBottom: 20, justifyContent: 'flex-end', width: '100%', }}>
-                        <Image source={Market} resizeMode='cover' style={{ position: 'absolute', height: responsiveHeight(40), width: '90%', borderRadius: 5, alignSelf: 'center', }} />
+                        <Image source={IMAGES.MARKETPLACE} resizeMode='cover' style={{ position: 'absolute', height: responsiveHeight(40), width: '90%', borderRadius: 5, alignSelf: 'center', }} />
                         <Text style={{ color: 'white', fontWeight: '700', fontSize: responsiveFontSize(2.5) }}>Directory</Text>
                         <Text style={{ color: 'white', fontWeight: '700', fontSize: responsiveFontSize(1.8) }}>0 Listings</Text>
 
@@ -216,7 +205,7 @@ const CityTownScreen = () => {
                     <Spacer size={size.mid} />
 
                     <View style={{ height: responsiveHeight(35), alignItems: "center", paddingBottom: 20, justifyContent: 'flex-end', width: '100%', }}>
-                        <Image source={Market} resizeMode='cover' style={{ position: 'absolute', height: responsiveHeight(40), width: '90%', borderRadius: 5, alignSelf: 'center', }} />
+                        <Image source={IMAGES.MARKETPLACE} resizeMode='cover' style={{ position: 'absolute', height: responsiveHeight(40), width: '90%', borderRadius: 5, alignSelf: 'center', }} />
                         <Text style={{ color: 'white', fontWeight: '700', fontSize: responsiveFontSize(2.5) }}>Directory</Text>
                         <Text style={{ color: 'white', fontWeight: '700', fontSize: responsiveFontSize(1.8) }}>0 Listings</Text>
 
@@ -227,7 +216,7 @@ const CityTownScreen = () => {
 
 
                     <View style={{ height: responsiveHeight(35), alignItems: "center", paddingBottom: 20, justifyContent: 'flex-end', width: '100%', }}>
-                        <Image source={Market} resizeMode='cover' style={{ position: 'absolute', height: responsiveHeight(40), width: '90%', borderRadius: 5, alignSelf: 'center', }} />
+                        <Image source={IMAGES.MARKETPLACE} resizeMode='cover' style={{ position: 'absolute', height: responsiveHeight(40), width: '90%', borderRadius: 5, alignSelf: 'center', }} />
                         <Text style={{ color: 'white', fontWeight: '700', fontSize: responsiveFontSize(2.5) }}>Directory</Text>
                         <Text style={{ color: 'white', fontWeight: '700', fontSize: responsiveFontSize(1.8) }}>0 Listings</Text>
 
@@ -273,20 +262,20 @@ const CityTownScreen = () => {
                         <View style={{}}>
 
 
-                            <Image source={component1} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
-                            <Image source={component2} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
-                            <Image source={component3} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
-                            <Image source={component2} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
+                            <Image source={IMAGES.COMPONENT1} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
+                            <Image source={IMAGES.COMPONENT2} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
+                            <Image source={IMAGES.COMPONENT3} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
+                            <Image source={IMAGES.COMPONENT2} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
                         </View>
 
                         {/* 2nd column */}
 
                         <View style={{}}>
 
-                            <Image source={component5} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
-                            <Image source={component6} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
-                            <Image source={component7} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
-                            <Image source={component8} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
+                            <Image source={IMAGES.COMPONENT5} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
+                            <Image source={IMAGES.COMPONENT6} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
+                            <Image source={IMAGES.COMPONENT7} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
+                            <Image source={IMAGES.COMPONENT8} style={{ height: 80, width: windowWidth * 0.42, backgroundColor: '#59B712', borderColor: '#707070', marginBottom: 10 }} />
                         </View>
                     </View>
                 </View>

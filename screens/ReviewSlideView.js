@@ -2,8 +2,8 @@ import { View, Text } from 'react-native'
 import React, { useState } from 'react'
 import { SpacerHorizontal } from './spacer';
 import { size } from './size';
-import Thum from '../images/thum.png'
 import SliderBase from '@react-native-community/slider';
+import IMAGES from '../constants/ImagesContant';
 
 const ReviewSlideView = ({ Title }) => {
     const [sliderValue, setSliderValue] = useState(0);
@@ -25,7 +25,7 @@ const ReviewSlideView = ({ Title }) => {
                     minimumTrackTintColor="#0C3982"
                     maximumTrackTintColor="#EFEFEF"
                     thumbTintColor='#4286F5'
-                    thumbImage={Thum}
+                    thumbImage={IMAGES.THUM}
                 /></View>
             <Text> 5.0</Text>
         </View>

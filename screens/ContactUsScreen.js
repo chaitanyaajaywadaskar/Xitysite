@@ -3,17 +3,6 @@ import React, { useState } from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import ExpandedView from './ExpandedView'
 import FloatButton from './FloatButton'
-import ContactImg from '../images/contactimg.png'
-import Logo from '../images/logo.png'
-import fbIcon from '../images/fbicon.png'
-import twitIcon from '../images/twittericon.png'
-import igIcon from '../images/instaicon.png'
-import ytIcon from '../images/yticon.png'
-import vIcon from '../images/vIcon.png'
-import Banner4 from '../images/banner4.png'
-import Yellow from '../images/yellowicon.png'
-import MapImg from '../images/map.png'
-import ShareIcon from '../images/shareicon.png'
 import Spacer, { SpacerHorizontal } from './spacer'
 import { size } from './size'
 import Icons from './Icons/IconsSet';
@@ -21,38 +10,125 @@ import IconTitleDesc from './IconTitleDesc'
 import ImageOverlayText from './ImageOverlayText'
 import GreyTextInput from './GreyTextInput'
 import BottomView from './BottomView'
-import BannerBlue from '../images/banner.png'
-import PinkBurger from '../images/pinkcircle.png'
 import {
     responsiveHeight,
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
+import DocumentPicker from 'react-native-document-picker';
 import CustomAppBar from './CustomAppBar'
+import IMAGES from '../constants/ImagesContant';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+
 
 const ContactUsScreen = ({ navigation }) => {
     const [isExpand, setExpand] = useState(false);
     const [isMapAlert, setIsMapAlert] = useState(false);
+    const [fname, setFName] = useState('');
+    const [lname, setLName] = useState('');
+    const [bussiness, setBussiness] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [subject, setSubject] = useState('');
+    const [msg, setMeg] = useState('');
+    const [file, setFile] = useState();
+
+    const onContactDetailSend = () => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+        if (fname === '') {
+            alert('First name is required')
+        }
+        else if (lname === '') {
+            alert('Last name is required')
+        }
+        else if (bussiness === '') {
+            alert('business name is required')
+        }
+        else if (email === '') {
+            alert('email is required')
+        }
+        else if (phone === '') {
+            alert("phone is required")
+        }
+        else if (subject === '') {
+            alert('subject is required')
+        }
+        else if (msg === '') {
+            alert('message is required')
+        }
+        else {
+            handleSignUp();
+
+        }
+    }
+    const handleSignUp = () => {
+        setLogin(true)
+
+        ApiManager.post('directory/getcontact',
+            {
+                firstname: fname,
+                lastname: lname,
+                bussinessname: bussiness,
+                email: email,
+                phoneno: phone,
+                subject: subject,
+                message: msg,
+                image: file
+            })
+            .then(function (response) {
+                setLogin(false)
+                console.log(response);
+                if (response.status === 200) {
+                    alert("Message send Successfully")
+                }
+                else {
+                    alert("Faild")
+
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                setLogin(false)
+                alert("Failed, Please provide valid details")
+
+            });
+    }
+    const selectDoc = async () => {
+        try {
+
+            const doc = await DocumentPicker.pick(
+                {
+                    type: [DocumentPicker.types.pdf]
+                }
+            )
+            setFile(doc)
+            console.log(doc)
+        } catch (err) {
+            if (DocumentPicker.isCancel(err))
+                console.log('User cancel ' + err)
+            else {
+                console.log('error')
+            }
+        }
+    }
     return (
         <View style={{ flex: 1 }}>
             <CustomAppBar />
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{ marginTop: 60 }}>
                     <View style={styles.overlayContainer}>
-                        <Image source={ContactImg} resizeMode='cover' style={styles.contactImg} />
+                        <Image source={IMAGES.CONTACTIMG} resizeMode='cover' style={styles.contactImg} />
                         <Text style={styles.largeText}>Contact Us</Text>
                         <Spacer size={size.mid} />
                         <View style={styles.shortLine} />
                         <Spacer size={size.mid} />
                         <Text style={styles.whiteShortText}>Home  &gt;  Contacts Us</Text>
-
                     </View>
-
                     <Spacer size={size.mid} />
                     <View style={{ paddingHorizontal: 15 }}>
-                        <Image source={Logo} resizeMode='contain' style={styles.imageStyle} />
+                        <Image source={IMAGES.LOGO} resizeMode='contain' style={styles.imageStyle} />
                         <Spacer size={size.sm} />
                         <Text style={styles.description}>Xity is Your Resource For All Things Local. From businesses, professionals, industries, brands to deals, events, jobs, and government services in your locality we'll help you find it all.</Text>
                         <Text style={styles.descriptionBold}>We invite all visitors and businesses to join us and make a MARK on the local community!</Text>
@@ -69,11 +145,11 @@ const ContactUsScreen = ({ navigation }) => {
                             <Spacer size={size.sm} />
                             <View style={styles.line} />
                             <View style={styles.iconContainer}>
-                                <Image source={fbIcon} style={styles.imageIcon} />
-                                <Image source={twitIcon} style={styles.imageIcon} />
-                                <Image source={igIcon} style={styles.imageIcon} />
-                                <Image source={ytIcon} style={styles.imageIcon} />
-                                <Image source={vIcon} style={styles.imageIcon} />
+                                <Image source={IMAGES.FBBLUE} style={styles.imageIcon} />
+                                <Image source={IMAGES.TWITERBLUE} style={styles.imageIcon} />
+                                <Image source={IMAGES.INSTABLUE} style={styles.imageIcon} />
+                                <Image source={IMAGES.YTBLUE} style={styles.imageIcon} />
+                                <Image source={IMAGES.VBLUE} style={styles.imageIcon} />
                             </View>
                             <Spacer size={size.mid} />
                             <View style={styles.line} />
@@ -86,9 +162,9 @@ const ContactUsScreen = ({ navigation }) => {
 
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} >
 
-                            <ImageOverlayText Img={Banner4} Desc='Please review our FAQs, it can help you with general information.' BtnText='FAQs' />
-                            <ImageOverlayText Img={Banner4} Desc='Please review our FAQs, it can help you with general information.' BtnText='FAQs' />
-                            <ImageOverlayText Img={Banner4} Desc='Please review our FAQs, it can help you with general information.' BtnText='FAQs' />
+                            <ImageOverlayText Img={IMAGES.BANNER4} Desc='Please review our FAQs, it can help you with general information.' BtnText='FAQs' />
+                            <ImageOverlayText Img={IMAGES.BANNER4} Desc='Please review our FAQs, it can help you with general information.' BtnText='FAQs' />
+                            <ImageOverlayText Img={IMAGES.BANNER4} Desc='Please review our FAQs, it can help you with general information.' BtnText='FAQs' />
 
                         </ScrollView>
                         <Spacer size={size.lg} />
@@ -97,28 +173,43 @@ const ContactUsScreen = ({ navigation }) => {
 
                         <Text style={styles.description}>We are always happy to hear from our customers. We are always grateful for any time you spend providing us with the knowledge we need to ensure our customers are completely satisfied with the service we offer. If you have any questions or feedback, please do not hesitate to contact a member of the Eloe Customer Care team.</Text>
                         <Spacer size={size.lg} />
-                        <GreyTextInput hint='*First name' isAvatar={true} />
+                        <GreyTextInput hint='*First name' onChangeText={(val) => {
+
+                        }} isAvatar={true} />
                         <Spacer size={size.sm} />
-                        <GreyTextInput hint='*Last name' isAvatar={true} />
+                        <GreyTextInput hint='*Last name' onChangeText={(val) => {
+
+                        }} isAvatar={true} />
                         <Spacer size={size.sm} />
-                        <GreyTextInput hint='Business name' isBussiness={true} />
+                        <GreyTextInput hint='Business name' onChangeText={(val) => {
+
+                        }} isBussiness={true} />
                         <Spacer size={size.sm} />
-                        <GreyTextInput hint='Email' isEmail={true} />
+                        <GreyTextInput hint='Email' onChangeText={(val) => {
+
+                        }} isEmail={true} />
                         <Spacer size={size.sm} />
-                        <GreyTextInput hint='*Phone number' isCall={true} />
+                        <GreyTextInput hint='*Phone number' onChangeText={(val) => {
+
+                        }} isCall={true} />
                         <Spacer size={size.sm} />
-                        <GreyTextInput hint='*Subject' isBook={true} />
+                        <GreyTextInput hint='*Subject' onChangeText={(val) => {
+
+                        }} isBook={true} />
                         <Spacer size={size.sm} />
                         <TextInput
                             placeholder='*Message'
                             multiline={true}
                             placeholderTextColor='grey'
                             style={styles.msgBox}
+                            onChangeText={(val) => {
+
+                            }}
                         />
                         <Spacer size={size.mid} />
                         <Text style={styles.midSizeText}>Attachments:</Text>
                         <Spacer size={size.sm} />
-                        <TouchableOpacity style={styles.greyBtn}>
+                        <TouchableOpacity onPress={selectDoc} style={styles.greyBtn}>
                             <Text style={{ color: 'white' }}>Upload file</Text>
                         </TouchableOpacity>
                         <Spacer size={size.sh} />
@@ -128,7 +219,7 @@ const ContactUsScreen = ({ navigation }) => {
                             <Text style={styles.imgBtnText}>Send Message</Text>
                             <SpacerHorizontal size={size.mid} />
 
-                            <Image source={ShareIcon} style={styles.shareBtn} />
+                            <Image source={IMAGES.SHAREBTN} style={styles.shareBtn} />
                         </TouchableOpacity>
                         <Spacer size={size.mid} />
                         <Spacer size={size.mid} />
@@ -145,10 +236,10 @@ const ContactUsScreen = ({ navigation }) => {
                     }}>
                         <View style={{ height: 350, alignItems: 'center', justifyContent: 'center', }}>
 
-                            <Image source={MapImg} resizeMode='cover' style={{ width: windowWidth, height: 350, position: 'absolute', bottom: 0, }} />
+                            <Image source={IMAGES.MAP} resizeMode='cover' style={{ width: windowWidth, height: 350, position: 'absolute', bottom: 0, }} />
 
                             <View style={{ position: 'absolute', flexDirection: 'row', right: 10, bottom: 25 }}>
-                                <Image source={Yellow} style={{ width: 45, height: 45 }} />
+                                <Image source={IMAGES.YELLOWBTN} style={{ width: 45, height: 45 }} />
                             </View>
                             <View style={{ position: 'absolute', right: 10, }}>
                                 <TouchableOpacity style={{ width: 45, height: 45, alignItems: 'center', justifyContent: 'center', borderRadius: 4, backgroundColor: 'white' }}>
@@ -161,7 +252,7 @@ const ContactUsScreen = ({ navigation }) => {
                             </View>
 
                             {isMapAlert && <View style={{ height: 220, width: windowWidth * 0.7, alignSelf: 'center', }} >
-                                <Image source={BannerBlue} style={{ height: 220, alignSelf: 'center', position: 'absolute', justifyContent: 'center', borderRadius: 8, width: windowWidth * 0.7 }} />
+                                <Image source={IMAGES.BANNERBLUE} style={{ height: 220, alignSelf: 'center', position: 'absolute', justifyContent: 'center', borderRadius: 8, width: windowWidth * 0.7 }} />
 
                                 <View style={{ width: windowWidth * 0.7, justifyContent: 'space-between', height: 220, }}>
                                     <View style={{ flexDirection: 'row', paddingTop: 8, paddingHorizontal: 10, justifyContent: 'space-between' }}>
@@ -182,7 +273,7 @@ const ContactUsScreen = ({ navigation }) => {
 
                                             <Text style={{ color: 'black', }}>Ornda Agency Pvt Ltd</Text>
                                         </View>
-                                        <Image source={PinkBurger} resizeMode='contain' style={{ position: 'absolute', right: 25, top: -20, width: 40, height: 40 }} />
+                                        <Image source={IMAGES.PINKBURGER} resizeMode='contain' style={{ position: 'absolute', right: 25, top: -20, width: 40, height: 40 }} />
 
                                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>

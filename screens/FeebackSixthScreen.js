@@ -1,7 +1,6 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import Icons from './Icons/IconsSet';
-import mainImage from '../images/mainImage.png'
 import BottomButtons from './BottomButtons'
 import Stars from './Stars'
 import CustomAppBar from './CustomAppBar';
@@ -17,6 +16,8 @@ import {
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
+import IMAGES from '../constants/ImagesContant'
+
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const FeedbackSixthScreen = ({ navigation }) => {
@@ -28,7 +29,7 @@ const FeedbackSixthScreen = ({ navigation }) => {
             <ScrollView>
 
                 <View style={{ height: height * 0.9 }}>
-                    <Image source={mainImage} style={{ position: 'absolute', height: height, width: width }} />
+                    <Image source={IMAGES.MAINIMAGE} style={{ position: 'absolute', height: height, width: width }} />
                     <View style={{ padding: 25, marginTop: height * 0.20, alignItems: 'flex-start' }}>
                         <View style={{ flexDirection: 'row', marginBottom: 15 }}>
                             <Text style={{ color: 'white', fontSize: responsiveFontSize(2), }}>6</Text>
