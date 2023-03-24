@@ -16,6 +16,8 @@ import {
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
+import IMAGES from '../constants/ImagesContant'
+
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
@@ -36,7 +38,7 @@ const FeedbackTenthScreen = ({ navigation }) => {
             <CustomAppBar />
             <ScrollView>
                 <View style={{ height: height * 0.9 }}>
-                    <Image source={mainImage} style={{ position: 'absolute', height: height, width: width }} />
+                    <Image source={IMAGES.MAINIMAGE} style={{ position: 'absolute', height: height, width: width }} />
                     <View style={{ marginLeft: 10, marginRight: 10, padding: 15, marginTop: height * 0.20, alignItems: 'flex-start' }}>
                         <View style={{ flexDirection: 'row' }}>
                             <Text style={{ color: 'white', fontSize: responsiveFontSize(2) }}>10</Text>

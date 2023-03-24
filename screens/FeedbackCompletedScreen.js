@@ -3,6 +3,8 @@ import React from 'react'
 import mainImage from '../images/mainImage.png'
 import CustomAppBar from './CustomAppBar';
 import BottomView from './BottomView';
+import IMAGES from '../constants/ImagesContant'
+
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
@@ -12,7 +14,7 @@ const FeedbackCompletedScreen = () => {
             <ScrollView>
                 <View style={{ height: height }}>
                     <CustomAppBar />
-                    <Image source={mainImage} style={{ position: 'absolute', height: height, width: width }} />
+                    <Image source={IMAGES.MAINIMAGE} style={{ position: 'absolute', height: height, width: width }} />
                     <View style={{ backgroundColor: 'rgba(255,255,255,0.5)', position: 'absolute', height: height, width: width * 0.9, alignSelf: 'center' }} />
                     <View style={styles.centered}>
                         <Text style={styles.title}>Thanks, Name,(Dynamic) We really appreciate your feedback</Text>
